@@ -6,20 +6,18 @@ public class Invoice {
     private int triangleCounter;
     private int circleCounter;
     private int redSurcharge;
+    private int bluePaintColour;
+    private int yellowPaintColour;
 
 
-
-    public Invoice(int totalPrice) {
+    public Invoice(int totalPrice, int squareCounter, int triangleCounter, int circleCounter, int redSurcharge, int bluePaintColour, int yellowPaintColour) {
         this.totalPrice = totalPrice;
-
-    }
-
-    public void setCounters(int squareCounter, int triangleCounter, int circleCounter, int redSurcharge) {
         this.squareCounter = squareCounter;
         this.triangleCounter = triangleCounter;
         this.circleCounter = circleCounter;
         this.redSurcharge = redSurcharge;
-
+        this.bluePaintColour = bluePaintColour;
+        this.yellowPaintColour = yellowPaintColour;
     }
 
     public int getTotalPrice() {
@@ -42,4 +40,7 @@ public class Invoice {
         return redSurcharge;
     }
 
+    public int getBluePaintColour() { return bluePaintColour; }
+
+    public int getYellowPaintColour() { return yellowPaintColour; }
 }

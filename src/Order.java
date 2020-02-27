@@ -1,7 +1,7 @@
 
+import java.time.Clock;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Order {
@@ -10,18 +10,11 @@ public class Order {
     int totalOrders = 1;
     private List<Block> blocks = new ArrayList<>();
     private LocalDate dueDate;
-//
 
-    public Order(Customer customer) {
-        this.customer = customer;
-    }
 
-    public Order(Customer customer, List<Block> blocks) {
+    public Order() {
         this.customer = customer;
-        this.setDueDate(dueDate.plusWeeks(3));
-        this.setOrderId(String.format("E%04d", ++totalOrders));
         this.blocks = blocks;
-
     }
 
     public Customer getCustomer() {
@@ -29,14 +22,21 @@ public class Order {
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public String getOrderId() {
+        return orderId;
     }
 
+    public void setOrderId(String orderId) {
+        this.orderId = (String.format("E%04d", ++totalOrders));
+    }
 
-    public void setDueDate(LocalDate dueDate) {
-        LocalDate today = LocalDate.now();
+    public void setDueDate(int year, int month, int day) {
+        LocalDate today = LocalDate.of(year, month, day);
         this.dueDate = today.plusWeeks(3);
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
     }
 
     public List<Block> getBlocks() {

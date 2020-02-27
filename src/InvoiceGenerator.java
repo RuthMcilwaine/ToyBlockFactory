@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class InvoiceGenerator {
 
+
     Map<Shape, Integer> shapePrices = new HashMap<>();
 
     public InvoiceGenerator() {
@@ -18,6 +19,9 @@ public class InvoiceGenerator {
         int triangleCounter = 0;
         int circleCounter = 0;
         int redSurcharge = 0;
+        int bluePaintColour = 0;
+        int yellowPaintColour = 0;
+
 
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
@@ -33,9 +37,16 @@ public class InvoiceGenerator {
             if (block.getPaintcolour().equals(PaintColour.RED)) {
                 redSurcharge++;
             }
+            if (block.getPaintcolour().equals(PaintColour.BLUE)) {
+                bluePaintColour++;
+            }
+            if (block.getPaintcolour().equals(PaintColour.YELLOW)) {
+                yellowPaintColour++;
+            }
         }
-        Invoice invoice = new Invoice(sumOfCosts);
+        Invoice invoice = new Invoice(sumOfCosts, squareCounter, triangleCounter, circleCounter, redSurcharge, bluePaintColour, yellowPaintColour);
         return invoice;
+
     }
 
 

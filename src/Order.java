@@ -3,6 +3,7 @@ import java.time.Clock;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Order {
     private Customer customer;
@@ -43,6 +44,9 @@ public class Order {
         return blocks;
     }
 
+    public void setBlocks(List<Block> blocks) {
+        this.blocks = blocks;
+    }
 
     public void add(Block block) {
         if (!block.equals("")) {
@@ -50,5 +54,14 @@ public class Order {
         }
 
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(blocks, order.blocks);
+    }
+
 }
 

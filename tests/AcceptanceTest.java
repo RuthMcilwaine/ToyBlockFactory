@@ -8,8 +8,7 @@ public class AcceptanceTest {
 
     @Test
     void canGetTotalPriceOfAllItemsInOrder() {
-//        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
-
+        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
         Order order = new Order();
 
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
@@ -30,7 +29,7 @@ public class AcceptanceTest {
     @Test
     void canGenerateANewInvoiceReport() {
 
-//        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
+        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
         Order order = new Order();
 
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
@@ -51,7 +50,7 @@ public class AcceptanceTest {
     @Test
     void canGeneratePaintingReportFromTheOrder() {
 
-//        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
+        Customer customer = new Customer("Mark Pearl", "Somewhere, Aus");
         Order order = new Order();
 
         order.add(new Block(PaintColour.RED, Shape.SQUARE));

@@ -28,12 +28,4 @@ public class Block {
                 shape == block.shape;
     }
 
-
-    @Override
-    public String toString() {
-        return "Block{" +
-                "paintcolour=" + paintcolour +
-                ", shape=" + shape +
-                '}';
-    }
 }

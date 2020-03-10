@@ -25,24 +25,14 @@ public class InvoiceGenerator {
 
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
-            if (block.getShape().equals(Shape.SQUARE)) {
-                squareCounter++;
-            }
-            if (block.getShape().equals(Shape.TRIANGLE)) {
-                triangleCounter++;
-            }
-            if (block.getShape().equals(Shape.CIRCLE)) {
-                circleCounter++;
-            }
-            if (block.getPaintcolour().equals(PaintColour.RED)) {
-                redSurcharge++;
-            }
-            if (block.getPaintcolour().equals(PaintColour.BLUE)) {
-                bluePaintColour++;
-            }
-            if (block.getPaintcolour().equals(PaintColour.YELLOW)) {
-                yellowPaintColour++;
-            }
+
+            Counter orderCounter = new Counter(squareCounter, triangleCounter, circleCounter, redSurcharge, bluePaintColour, yellowPaintColour, block).invoke();
+            squareCounter = orderCounter.getSquareCounter();
+            triangleCounter = orderCounter.getTriangleCounter();
+            circleCounter = orderCounter.getCircleCounter();
+            redSurcharge = orderCounter.getRedSurcharge();
+            bluePaintColour = orderCounter.getBluePaintColour();
+            yellowPaintColour = orderCounter.getYellowPaintColour();
         }
         Invoice invoice = new Invoice(sumOfCosts, squareCounter, triangleCounter, circleCounter, redSurcharge, bluePaintColour, yellowPaintColour);
         return invoice;
@@ -57,5 +47,6 @@ public class InvoiceGenerator {
         return shapePrices.get(block.getShape());
 
     }
+
 
 }

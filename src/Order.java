@@ -1,43 +1,32 @@
 
-import java.time.Clock;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Order {
+
     private Customer customer;
-    private String orderId;
-    int totalOrders = 1;
+    private int totalOrders = 1;
     private List<Block> blocks = new ArrayList<>();
-    private LocalDate dueDate;
+    private String orderId;
 
 
-    public Order() {
-        this.customer = customer;
-        this.blocks = blocks;
+    public Order() { this.blocks = blocks; }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public String getOrderId() {
+        orderId = String.format("E%04d", ++totalOrders);
         return orderId;
     }
 
     public void setOrderId(String orderId) {
-        this.orderId = (String.format("E%04d", ++totalOrders));
-    }
-
-    public void setDueDate(int year, int month, int day) {
-        LocalDate today = LocalDate.of(year, month, day);
-        this.dueDate = today.plusWeeks(3);
-    }
-
-    public LocalDate getDueDate() {
-        return dueDate;
+        this.orderId = orderId;
     }
 
     public List<Block> getBlocks() {
@@ -49,8 +38,6 @@ public class Order {
         if (!block.equals("")) {
             blocks.add(block);
         }
-
     }
-
 }
 

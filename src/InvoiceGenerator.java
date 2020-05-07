@@ -3,50 +3,105 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InvoiceGenerator {
+    private int sumOfCosts;
+    private int totalSquareCount;
+    private int totalTriangleCount;
+    private int totalCircleCount;
+    private int redSquare;
+    private int blueSquare;
+    private int yellowSquare;
+    private int redTriangle;
+    private int blueTriangle;
+    private int yellowTriangle;
+    private int redCircle;
+    private int blueCircle;
+    private int yellowCircle;
 
 
-    Map<Shape, Integer> shapePrices = new HashMap<>();
+    Map<Shape, Integer> pricePerShape = new HashMap<>();
 
     public InvoiceGenerator() {
-        shapePrices.put(Shape.SQUARE, 1);
-        shapePrices.put(Shape.TRIANGLE, 2);
-        shapePrices.put(Shape.CIRCLE, 3);
+        pricePerShape.put(Shape.SQUARE, 1);
+        pricePerShape.put(Shape.TRIANGLE, 2);
+        pricePerShape.put(Shape.CIRCLE, 3);
     }
 
     public Invoice createInvoice(Order order) {
-        int sumOfCosts = 0;
-        int squareCounter = 0;
-        int triangleCounter = 0;
-        int circleCounter = 0;
-        int redSurcharge = 0;
-        int bluePaintColour = 0;
-        int yellowPaintColour = 0;
-
-
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
 
-            Counter orderCounter = new Counter(squareCounter, triangleCounter, circleCounter, redSurcharge, bluePaintColour, yellowPaintColour, block).invoke();
-            squareCounter = orderCounter.getSquareCounter();
-            triangleCounter = orderCounter.getTriangleCounter();
-            circleCounter = orderCounter.getCircleCounter();
-            redSurcharge = orderCounter.getRedSurcharge();
-            bluePaintColour = orderCounter.getBluePaintColour();
-            yellowPaintColour = orderCounter.getYellowPaintColour();
+            countSquaresPaintColoursFromOrder(block);
+            countTrianglesPaintColoursFromOrder(block);
+            countCirclesPaintColoursFromOrder(block);
         }
-        Invoice invoice = new Invoice(sumOfCosts, squareCounter, triangleCounter, circleCounter, redSurcharge, bluePaintColour, yellowPaintColour);
+
+        int totalRedCount = redSquare + redTriangle + redCircle;
+        int totalBlueCount = blueSquare + blueTriangle + blueCircle;
+        int totalYellowCount = yellowSquare + yellowTriangle + yellowCircle;
+
+        Invoice invoice = new Invoice(sumOfCosts, totalSquareCount, totalTriangleCount, totalCircleCount, totalRedCount, totalBlueCount, totalYellowCount);
+        invoice.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
+        invoice.setCirclePaintColours(redCircle,blueCircle,yellowCircle);
+        invoice.setTrianglePaintColours(redTriangle, blueTriangle,yellowTriangle);
         return invoice;
-
     }
 
-
-    private Integer getPrice(Block block) {
+    public Integer getPrice(Block block) {
         if (block.getPaintcolour().equals(PaintColour.RED)) {
-            return shapePrices.get(block.getShape()) + 1;
+            return pricePerShape.get(block.getShape()) + 1;
         }
-        return shapePrices.get(block.getShape());
+        return pricePerShape.get(block.getShape());
+    }
 
+    private void countSquaresPaintColoursFromOrder(Block block) {
+        if (block.getShape().equals(Shape.SQUARE)) {
+            totalSquareCount++;
+
+            redSquare = incrementingRedValue(block.getPaintcolour(), redSquare);
+            blueSquare = incrementingBlueValue(block.getPaintcolour(), blueSquare);
+            yellowSquare = incrementingYellowValue(block.getPaintcolour(),yellowSquare);
+        }
+    }
+
+    private void countTrianglesPaintColoursFromOrder(Block block) {
+        if (block.getShape().equals(Shape.TRIANGLE)) {
+            totalTriangleCount++;
+
+            redTriangle = incrementingRedValue(block.getPaintcolour(),redTriangle);
+            blueTriangle = incrementingBlueValue(block.getPaintcolour(),blueTriangle);
+            yellowTriangle = incrementingYellowValue(block.getPaintcolour(),yellowTriangle);
+        }
     }
 
 
+    private void countCirclesPaintColoursFromOrder(Block block) {
+        if (block.getShape().equals(Shape.CIRCLE)) {
+            totalCircleCount++;
+
+            redCircle = incrementingRedValue(block.getPaintcolour(), redCircle);
+            blueCircle = incrementingBlueValue(block.getPaintcolour(),blueCircle);
+            yellowCircle = incrementingYellowValue(block.getPaintcolour(),yellowCircle);
+        }
+    }
+
+    private int incrementingRedValue(PaintColour paintColour, int redValue) {
+        if (paintColour.equals(PaintColour.RED)) {
+            redValue++;
+        }
+        return redValue;
+    }
+
+    private int incrementingBlueValue(PaintColour paintColour, int blueValue) {
+        if(paintColour.equals(PaintColour.BLUE)) {
+            blueValue++;
+        }
+        return blueValue;
+    }
+
+    private int incrementingYellowValue(PaintColour paintColour, int yellowValue) {
+        if (paintColour.equals(PaintColour.YELLOW)) {
+            yellowValue++;
+        }
+        return yellowValue;
+    }
 }

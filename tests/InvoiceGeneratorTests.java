@@ -2,12 +2,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class InvoiceGeneratorTests {
+    Order order = new Order();
+    InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
 
     @Test
     void invoiceHasCorrectNumberOfSquares() {
-        Order order = new Order();
         order.add(new Block(PaintColour.BLUE, Shape.SQUARE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getTotalSquareCount(), "Not the correct number of squares in the order");
@@ -15,9 +15,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceHasCorrectNumberOfTriangles() {
-        Order order = new Order();
         order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getTriangleCounter(), "Not the correct number of triangles in the order");
@@ -25,9 +23,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceHasCorrectNumberOfCircles() {
-        Order order = new Order();
         order.add(new Block(PaintColour.BLUE, Shape.CIRCLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getCircleCounter(), "Not the correct number of circles in the order");
@@ -35,9 +31,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceAddsRedSurchargeWhenRedIsInOrder() {
-        Order order = new Order();
         order.add(new Block(PaintColour.RED, Shape.CIRCLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getTotalRedCount(), "Not the correct number of red paint items in the order");
@@ -45,9 +39,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceHasCorrectNumberOfYellowCirclesInOrder() {
-        Order order = new Order();
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getYellowCircle(), "Not the correct number of yellow paint items in the order");
@@ -55,9 +47,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceAddsRedSquareWhenInOrder() {
-        Order order = new Order();
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getRedSquare(), "Not the correct number of red paint items in the order");
@@ -76,9 +66,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceAddsRedTriangleWhenInOrder() {
-        Order order = new Order();
         order.add(new Block(PaintColour.RED, Shape.TRIANGLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getRedTriangle(), "Not the correct number of red paint items in the order");
@@ -97,9 +85,7 @@ public class InvoiceGeneratorTests {
 
     @Test
     void invoiceAddsRedCircleWhenInOrder() {
-        Order order = new Order();
         order.add(new Block(PaintColour.RED, Shape.CIRCLE));
-        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
         Invoice invoice = invoiceGenerator.createInvoice(order);
 
         Assertions.assertEquals(1, invoice.getRedCircle(), "Not the correct number of red paint items in the order");
@@ -115,6 +101,4 @@ public class InvoiceGeneratorTests {
 
                 "Total:  $4", invoice.toString());
     }
-
-
 }

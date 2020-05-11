@@ -16,4 +16,11 @@ public class ValidateInput {
     public static boolean validateDueDate(String dueDate) {
         return dueDate.matches("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");
     }
+
+    public static boolean validateNumberInputForOrder(int number) {
+        if (number > 20) {
+            return false;
+        }
+        return true;
+    }
 }

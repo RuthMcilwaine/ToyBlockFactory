@@ -7,23 +7,21 @@ import java.util.Arrays;
 import java.util.List;
 
 class OrderTests {
+    Order order = new Order();
 
     @Test
     void canGenerateNewOrderIdForNewOrder() {
-        Order order = new Order();
         order.setOrderId("E0002");
         Assertions.assertEquals("E0002", order.getOrderId());
     }
     @Test
     void generateOrderWithNoBlocks() {
-        Order order = new Order();
         int actual = order.getBlocks().size();
         Assert.assertEquals(0, actual);
     }
 
     @Test
     void generateOrderWithOneRedSquare() {
-        Order order = new Order();
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
 
@@ -33,8 +31,6 @@ class OrderTests {
 
     @Test
     void generateOrderWithTwoRedSquares() {
-        Order order = new Order();
-
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
@@ -45,8 +41,6 @@ class OrderTests {
 
     @Test
     void canAddRedAndBlueSquaresToAnOrder() {
-        Order order = new Order();
-
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
         order.add(new Block(PaintColour.BLUE, Shape.SQUARE));
         List<Block> expected = order.getBlocks();
@@ -57,8 +51,6 @@ class OrderTests {
 
     @Test
     void generateOrderWithFiveRedSquares() {
-        Order order = new Order();
-
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
         order.add(new Block(PaintColour.RED, Shape.SQUARE));

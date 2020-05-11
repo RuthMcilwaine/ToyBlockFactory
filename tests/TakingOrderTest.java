@@ -4,10 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 class TakingOrderTest {
+    TakingOrder takingOrder = new TakingOrder();
 
     @Test
     void noBlocksAreSetInOrderWhenZeroIsEntered() {
-        TakingOrder takingOrder = new TakingOrder();
         ByteArrayInputStream in = new ByteArrayInputStream("0".getBytes());
         Scanner input = new Scanner(in);
         int actual = takingOrder.questionAnswer(input, "");
@@ -17,7 +17,6 @@ class TakingOrderTest {
 
     @Test
     void setsOneBlockToOrderWhenNumberOneIsEntered() {
-        TakingOrder takingOrder = new TakingOrder();
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         Scanner input = new Scanner(in);
         int actual = takingOrder.questionAnswer(input, "");
@@ -27,7 +26,6 @@ class TakingOrderTest {
 
     @Test
     void totalNumberOfBlocksInTakingOrderAreSetToOrder() {
-        TakingOrder takingOrder = new TakingOrder();
         ByteArrayInputStream userInput = new ByteArrayInputStream("1\n0\n1\n1\n0\n1\n1\n0\n1\n".getBytes());
         Scanner input = new Scanner(userInput);
         takingOrder.setOrderDetails(input);
@@ -38,7 +36,6 @@ class TakingOrderTest {
 
     @Test
     void customerDetailsAreEnteredAndSetToOrder() {
-        TakingOrder takingOrder = new TakingOrder();
         ByteArrayInputStream userInput = new ByteArrayInputStream("Mark Pearl\n1 Bob Avenue\n19/01/2019\n".getBytes());
         Scanner input = new Scanner(userInput);
         takingOrder.setCustomerDetails(input);

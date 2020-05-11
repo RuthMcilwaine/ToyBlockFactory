@@ -26,8 +26,8 @@ public class TakingOrder {
             }
         } while (true);
         do {
-        System.out.println("Please input your Address: ");
-        address = input.nextLine();
+            System.out.println("Please input your Address: ");
+            address = input.nextLine();
             if (!ValidateInput.validateAddress(address)) {
                 System.out.println("Not a valid address. Please try again");
             } else {

@@ -51,4 +51,15 @@ public class ValidateInputTest {
         Assert.assertFalse(expected);
     }
 
+    @Test
+    void numberInputForOrderAcceptsZero() {
+        boolean expected = ValidateInput.validateNumberInputForOrder(0);
+        Assert.assertTrue(expected);
+    }
+
+    @Test
+    void numberInputForOrderAcceptsMaximum20() {
+        boolean expected = ValidateInput.validateNumberInputForOrder(21);
+        Assert.assertFalse(expected);
+    }
 }

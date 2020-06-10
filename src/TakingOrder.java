@@ -44,24 +44,15 @@ public class TakingOrder {
     }
 
     public void setOrderDetails(Scanner input) {
-        int redSquareOrder = questionAnswer(input, "Red Squares");
-        createBlocks(redSquareOrder, PaintColour.RED, Shape.SQUARE);
-        int blueSquareOrder = questionAnswer(input, "Blue Squares");
-        createBlocks(blueSquareOrder, PaintColour.BLUE, Shape.SQUARE);
-        int yellowSquareOrder = questionAnswer(input, "Yellow Squares");
-        createBlocks(yellowSquareOrder, PaintColour.YELLOW, Shape.SQUARE);
-        int redTriangleOrder = questionAnswer(input, "Red Triangle");
-        createBlocks(redTriangleOrder, PaintColour.RED, Shape.TRIANGLE);
-        int blueTriangleOrder = questionAnswer(input, "Blue Triangle");
-        createBlocks(blueTriangleOrder, PaintColour.BLUE, Shape.TRIANGLE);
-        int yellowTriangleOrder = questionAnswer(input, "Yellow Triangle");
-        createBlocks(yellowTriangleOrder, PaintColour.YELLOW, Shape.TRIANGLE);
-        int redCircleOrder = questionAnswer(input, "Red Circle");
-        createBlocks(redCircleOrder, PaintColour.RED, Shape.CIRCLE);
-        int blueCircleOrder = questionAnswer(input, "Blue Circle");
-        createBlocks(blueCircleOrder, PaintColour.BLUE, Shape.CIRCLE);
-        int yellowCircleOrder = questionAnswer(input, "Yellow Circle");
-        createBlocks(yellowCircleOrder, PaintColour.YELLOW, Shape.CIRCLE);
+        createBlocks(questionAnswer(input, "Red Squares"), PaintColour.RED, Shape.SQUARE);
+        createBlocks(questionAnswer(input, "Blue Squares"), PaintColour.BLUE, Shape.SQUARE);
+        createBlocks(questionAnswer(input, "Yellow Squares"), PaintColour.YELLOW, Shape.SQUARE);
+        createBlocks(questionAnswer(input, "Red Triangle"), PaintColour.RED, Shape.TRIANGLE);
+        createBlocks(questionAnswer(input, "Blue Triangle"), PaintColour.BLUE, Shape.TRIANGLE);
+        createBlocks(questionAnswer(input, "Yellow Triangle"), PaintColour.YELLOW, Shape.TRIANGLE);
+        createBlocks(questionAnswer(input, "Red Circle"), PaintColour.RED, Shape.CIRCLE);
+        createBlocks(questionAnswer(input, "Blue Circle"), PaintColour.BLUE, Shape.CIRCLE);
+        createBlocks(questionAnswer(input, "Yellow Circle"), PaintColour.YELLOW, Shape.CIRCLE);
     }
 
     private void createBlocks(int numOfBlocks, PaintColour paintColour, Shape shape) {

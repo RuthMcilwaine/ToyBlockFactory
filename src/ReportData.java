@@ -1,6 +1,6 @@
 
 
-public class Invoice {
+public class ReportData {
     private int sumOfCosts;
     private int totalSquareCount;
     private int totalTriangleCount;
@@ -18,8 +18,7 @@ public class Invoice {
     private int blueCircle;
     private int yellowCircle;
 
-
-    public Invoice(int sumOfCosts, int totalSquareCount, int totalTriangleCount, int totalCircleCount, int totalRedCount, int totalBlueCount, int totalYellowCount) {
+    public ReportData(int sumOfCosts, int totalSquareCount, int totalTriangleCount, int totalCircleCount, int totalRedCount, int totalBlueCount, int totalYellowCount) {
         this.sumOfCosts = sumOfCosts;
         this.totalSquareCount = totalSquareCount;
         this.totalTriangleCount = totalTriangleCount;
@@ -97,22 +96,6 @@ public class Invoice {
         this.redTriangle = redTriangle;
         this.blueTriangle = blueTriangle;
         this.yellowTriangle = yellowTriangle;
-    }
-
-    @Override
-    public String toString() {
-        return  "Your invoice report has been generated: \n" +
-
-                "|          | red | blue | yellow | \n" +
-                "|  square  |  " + getRedSquare() + "  |  " + getBlueSquare() + "   |   " + getYellowSquare() + "    | \n"
-              + "| triangle |  "  + getRedTriangle() + "  |  "  + getBlueTriangle() +  "   |   "  + getYellowTriangle() +  "    | \n"
-              + "|  circle  |  " + getRedCircle()+ "  |  " + getBlueCircle() + "   |   " + getYellowCircle() + "    | \n" +
-
-                "Squares " + getTotalSquareCount() + " @ $1 ppi =  $" + getTotalSquareCount()* 1 + "\n" +
-                "Triangles " + getTotalTriangleCount() + " @ $2 ppi =  $" + getTotalTriangleCount() * 2 + "\n" +
-                "Circles " + getTotalCircleCount() + " @ $3 ppi =  $" + getTotalCircleCount() * 3 + "\n" +
-                "Red colour surcharge " + getTotalRedCount() + " @ $1 ppi =  $" + getTotalRedCount() * 1 + "\n" + "\n" +
-                "Total:  $" + sumOfCosts;
     }
 
 }

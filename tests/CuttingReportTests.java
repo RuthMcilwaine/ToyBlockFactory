@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class CuttingReportTests {
     Order order = new Order();
-    InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+    ReportGenerator reportGenerator = new ReportGenerator();
 
     @Test
     void canGenerateANewCuttingReport() {
@@ -15,8 +15,8 @@ public class CuttingReportTests {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Invoice invoice = invoiceGenerator.createCuttingReport(order);
-        Assertions.assertEquals(2, invoice.getTotalSquareCount(), "Not the correct number of squares in the order");
+        Report report = reportGenerator.createCuttingReport(order);
+        Assertions.assertEquals(2, report.getReportData().getTotalSquareCount(), "Not the correct number of squares in the order");
     }
 
 }

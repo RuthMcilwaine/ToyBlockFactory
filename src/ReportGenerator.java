@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InvoiceGenerator {
+public class ReportGenerator {
     private int sumOfCosts;
     private int totalSquareCount;
     private int totalTriangleCount;
@@ -18,29 +18,36 @@ public class InvoiceGenerator {
     private int redCircle;
     private int blueCircle;
     private int yellowCircle;
+    Report invoiceReport;
+    Report cuttingReport;
+    Report paintingReport;
 
 
     Map<Shape, Integer> pricePerShape = new HashMap<>();
 
-    public InvoiceGenerator() {
+    public ReportGenerator() {
         pricePerShape.put(Shape.SQUARE, 1);
         pricePerShape.put(Shape.TRIANGLE, 2);
         pricePerShape.put(Shape.CIRCLE, 3);
     }
 
-    public Invoice createInvoice(Order order) {
-        return getInvoice(order);
+    public Report createInvoice(Order order) {
+        getReport(order);
+        return invoiceReport;
     }
 
-    public Invoice createCuttingReport(Order order) {
-        return getInvoice(order);
+    public Report createCuttingReport(Order order) {
+        getReport(order);
+        return cuttingReport;
     }
-    public Invoice createPaintingReport(Order order) {
-        return getInvoice(order);
+
+    public Report createPaintingReport(Order order) {
+        getReport(order);
+        return paintingReport;
     }
 
     @NotNull
-    private Invoice getInvoice(Order order) {
+    private void getReport(Order order) {
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
 
@@ -53,12 +60,16 @@ public class InvoiceGenerator {
         int totalBlueCount = blueSquare + blueTriangle + blueCircle;
         int totalYellowCount = yellowSquare + yellowTriangle + yellowCircle;
 
-        Invoice invoice = new Invoice(sumOfCosts, totalSquareCount, totalTriangleCount, totalCircleCount, totalRedCount, totalBlueCount, totalYellowCount);
-        invoice.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
-        invoice.setCirclePaintColours(redCircle,blueCircle,yellowCircle);
-        invoice.setTrianglePaintColours(redTriangle, blueTriangle,yellowTriangle);
-        return invoice;
+        ReportData report = new ReportData(sumOfCosts, totalSquareCount, totalTriangleCount, totalCircleCount, totalRedCount, totalBlueCount, totalYellowCount);
+        report.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
+        report.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
+        report.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);
+
+        Report invoiceReport = new InvoiceReport(report);
+        Report cuttingReport = new CuttingReport(report);
+        Report paintingReport = new InvoiceReport(report);
     }
+
 
     private Integer getPrice(Block block) {
         if (block.getPaintcolour().equals(PaintColour.RED)) {
@@ -73,7 +84,7 @@ public class InvoiceGenerator {
 
             redSquare = incrementingRedValue(block.getPaintcolour(), redSquare);
             blueSquare = incrementingBlueValue(block.getPaintcolour(), blueSquare);
-            yellowSquare = incrementingYellowValue(block.getPaintcolour(),yellowSquare);
+            yellowSquare = incrementingYellowValue(block.getPaintcolour(), yellowSquare);
         }
     }
 
@@ -81,9 +92,9 @@ public class InvoiceGenerator {
         if (block.getShape().equals(Shape.TRIANGLE)) {
             totalTriangleCount++;
 
-            redTriangle = incrementingRedValue(block.getPaintcolour(),redTriangle);
-            blueTriangle = incrementingBlueValue(block.getPaintcolour(),blueTriangle);
-            yellowTriangle = incrementingYellowValue(block.getPaintcolour(),yellowTriangle);
+            redTriangle = incrementingRedValue(block.getPaintcolour(), redTriangle);
+            blueTriangle = incrementingBlueValue(block.getPaintcolour(), blueTriangle);
+            yellowTriangle = incrementingYellowValue(block.getPaintcolour(), yellowTriangle);
         }
     }
 
@@ -93,8 +104,8 @@ public class InvoiceGenerator {
             totalCircleCount++;
 
             redCircle = incrementingRedValue(block.getPaintcolour(), redCircle);
-            blueCircle = incrementingBlueValue(block.getPaintcolour(),blueCircle);
-            yellowCircle = incrementingYellowValue(block.getPaintcolour(),yellowCircle);
+            blueCircle = incrementingBlueValue(block.getPaintcolour(), blueCircle);
+            yellowCircle = incrementingYellowValue(block.getPaintcolour(), yellowCircle);
         }
     }
 
@@ -106,7 +117,7 @@ public class InvoiceGenerator {
     }
 
     private int incrementingBlueValue(PaintColour paintColour, int blueValue) {
-        if(paintColour.equals(PaintColour.BLUE)) {
+        if (paintColour.equals(PaintColour.BLUE)) {
             blueValue++;
         }
         return blueValue;

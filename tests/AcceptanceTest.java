@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class AcceptanceTest {
     Order order = new Order();
-    InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+    ReportGenerator reportGenerator = new ReportGenerator();
 
     @Test
     void canGetTotalPriceOfAllItemsInOrder() {
@@ -17,8 +17,8 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Invoice invoice = invoiceGenerator.createInvoice(order);
-        Assertions.assertEquals(16, invoice.getSumOfCosts());
+        Report report = reportGenerator.createInvoice(order);
+        Assertions.assertEquals(16, report.getReportData().getSumOfCosts());
     }
 
     @Test
@@ -32,8 +32,8 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Invoice invoice = invoiceGenerator.createInvoice(order);
-        Assertions.assertEquals(2, invoice.getTotalSquareCount(), "Not the correct number of squares in the order");
+        Report report = reportGenerator.createInvoice(order);
+        Assertions.assertEquals(2, report.getTotalSquareCount(), "Not the correct number of squares in the order");
     }
 
     @Test
@@ -47,8 +47,8 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Invoice invoice = invoiceGenerator.createInvoice(order);
-        Assertions.assertEquals(3, invoice.getTotalBlueCount(), "Not the correct number of blue paint items in the order");
+        Report report = reportGenerator.createInvoice(order);
+        Assertions.assertEquals(3, report.getTotalBlueCount(), "Not the correct number of blue paint items in the order");
     }
 }
 

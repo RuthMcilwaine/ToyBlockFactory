@@ -1,6 +1,4 @@
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +44,6 @@ public class ReportGenerator {
         return paintingReport;
     }
 
-    @NotNull
     private void getReport(Order order) {
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
@@ -65,9 +62,9 @@ public class ReportGenerator {
         report.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
         report.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);
 
-        Report invoiceReport = new InvoiceReport(report);
-        Report cuttingReport = new CuttingReport(report);
-        Report paintingReport = new InvoiceReport(report);
+        invoiceReport = new InvoiceReport(report);
+        cuttingReport = new CuttingReport(report);
+//        paintingReport = new Report(report);
     }
 
 

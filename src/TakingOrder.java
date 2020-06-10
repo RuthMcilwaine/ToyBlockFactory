@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
@@ -20,7 +19,6 @@ public class TakingOrder {
         order.setCustomer(new Customer(name, address, dueDate));
     }
 
-    @NotNull
     private String validateAndSetInput(Scanner scanner, String type, String s, String s2) {
         String input;
         do {

@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 public class TakingOrder {
@@ -12,38 +14,25 @@ public class TakingOrder {
     }
 
     public void setCustomerDetails(Scanner input) {
-        String name;
-        String address;
-        String dueDate;
-
-        do {
-            System.out.println("Please input your Name: ");
-            name = input.nextLine();
-            if (!ValidateInput.validateName(name)) {
-                System.out.println("Not a valid name. Please try again");
-            } else {
-                break;
-            }
-        } while (true);
-        do {
-            System.out.println("Please input your Address: ");
-            address = input.nextLine();
-            if (!ValidateInput.validateAddress(address)) {
-                System.out.println("Not a valid address. Please try again");
-            } else {
-                break;
-            }
-        } while (true);
-        do {
-            System.out.println("Please input your Due Date (eg.19/01/2019): ");
-            dueDate = input.nextLine();
-            if (!ValidateInput.validateDueDate(dueDate)) {
-                System.out.println("Not a valid date. Please try again");
-            } else {
-                break;
-            }
-        } while (true);
+        String name = validateAndSetInput(input, "name", "Please input your Name: ", "Not a valid name. Please try again");
+        String address = validateAndSetInput(input, "address", "Please input your Address: ", "Not a valid address. Please try again");
+        String dueDate = validateAndSetInput(input, "dueDate", "Please input your Due Date (eg.19/01/2019): ", "Not a valid date. Please try again");
         order.setCustomer(new Customer(name, address, dueDate));
+    }
+
+    @NotNull
+    private String validateAndSetInput(Scanner scanner, String type, String s, String s2) {
+        String input;
+        do {
+            System.out.println(s);
+            input = scanner.nextLine();
+            if (!ValidateInput.validate(type, input)) {
+                System.out.println(s2);
+            } else {
+                break;
+            }
+        } while (true);
+        return input;
     }
 
 

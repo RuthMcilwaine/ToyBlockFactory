@@ -2,6 +2,19 @@
 public class ValidateInput {
 
 
+    public static boolean validate(String type, String input) {
+        if (type.equals("name")) {
+            return validateName(input);
+        }
+        if (type.equals("address")){
+            return validateAddress(input);
+        }
+        if (type.equals("dueDate")) {
+            return validateDueDate(input);
+        }
+        return false;
+    }
+
     public static boolean validateName(String name) {
         if (name == null || name.length() > 100) {
             return false;
@@ -18,9 +31,6 @@ public class ValidateInput {
     }
 
     public static boolean validateNumberInputForOrder(int number) {
-        if (number > 20) {
-            return false;
-        }
-        return true;
+        return number <= 20;
     }
 }

@@ -1,4 +1,6 @@
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +29,18 @@ public class InvoiceGenerator {
     }
 
     public Invoice createInvoice(Order order) {
+        return getInvoice(order);
+    }
+
+    public Invoice createCuttingReport(Order order) {
+        return getInvoice(order);
+    }
+    public Invoice createPaintingReport(Order order) {
+        return getInvoice(order);
+    }
+
+    @NotNull
+    private Invoice getInvoice(Order order) {
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
 
@@ -46,7 +60,7 @@ public class InvoiceGenerator {
         return invoice;
     }
 
-    public Integer getPrice(Block block) {
+    private Integer getPrice(Block block) {
         if (block.getPaintcolour().equals(PaintColour.RED)) {
             return pricePerShape.get(block.getShape()) + 1;
         }

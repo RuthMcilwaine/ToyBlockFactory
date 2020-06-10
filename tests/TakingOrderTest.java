@@ -8,36 +8,26 @@ class TakingOrderTest {
 
     @Test
     void noBlocksAreSetInOrderWhenZeroIsEntered() {
-        ByteArrayInputStream in = new ByteArrayInputStream("0".getBytes());
-        Scanner input = new Scanner(in);
-        int actual = takingOrder.questionAnswer(input, "");
-
+        int actual = takingOrder.questionAnswer(getScanner("0"), "");
         Assert.assertEquals(0, actual);
     }
 
     @Test
     void setsOneBlockToOrderWhenNumberOneIsEntered() {
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        Scanner input = new Scanner(in);
-        int actual = takingOrder.questionAnswer(input, "");
-
+        int actual = takingOrder.questionAnswer(getScanner("1"), "");
         Assert.assertEquals(1, actual);
     }
 
     @Test
     void totalNumberOfBlocksInTakingOrderAreSetToOrder() {
-        ByteArrayInputStream userInput = new ByteArrayInputStream("1\n0\n1\n1\n0\n1\n1\n0\n1\n".getBytes());
-        Scanner input = new Scanner(userInput);
-        takingOrder.setOrderDetails(input);
+        takingOrder.setOrderDetails(getScanner("1\n0\n1\n1\n0\n1\n1\n0\n1\n"));
         int actual = takingOrder.getOrder().getBlocks().size();
-
         Assert.assertEquals(6, actual);
     }
 
     @Test
     void customerDetailsAreEnteredAndSetToOrder() {
-        ByteArrayInputStream userInput = new ByteArrayInputStream("Mark Pearl\n1 Bob Avenue\n19/01/2019\n".getBytes());
-        Scanner input = new Scanner(userInput);
+        Scanner input = getScanner("Mark Pearl\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
         String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
         String actual = takingOrder.order.getCustomer().toString();
@@ -47,9 +37,7 @@ class TakingOrderTest {
 
     @Test
     void customerNameIsInValid() {
-        TakingOrder takingOrder = new TakingOrder();
-        ByteArrayInputStream userInput = new ByteArrayInputStream("Mark P&^rl\nMark Pearl\n1 Bob Avenue\n19/01/2019\n".getBytes());
-        Scanner input = new Scanner(userInput);
+        Scanner input = getScanner("Mark P&^rl\nMark Pearl\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
         String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
         String actual = takingOrder.order.getCustomer().toString();
@@ -60,13 +48,17 @@ class TakingOrderTest {
     @Test
     void customerAddressIsInValid() {
         TakingOrder takingOrder = new TakingOrder();
-        ByteArrayInputStream userInput = new ByteArrayInputStream("Mark Pearl\n1 B*b Avenue\n1 Bob Avenue\n19/01/2019\n".getBytes());
-        Scanner input = new Scanner(userInput);
+        Scanner input = getScanner("Mark Pearl\n1 B*b Avenue\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
         String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
         String actual = takingOrder.order.getCustomer().toString();
 
         Assert.assertEquals(expected, actual);
+    }
+
+    private Scanner getScanner(String userInput) {
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
+        return new Scanner(in);
     }
 }
 

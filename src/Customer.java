@@ -11,8 +11,7 @@ public class Customer {
         this.dueDate = dueDate;
     }
 
-    @Override
-    public String toString() {
+    public String getCustomerDetails() {
         return "Name: " + name +
                 ", Address: " + address +
                 ", Due Date: " + dueDate;

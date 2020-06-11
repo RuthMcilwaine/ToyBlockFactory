@@ -1,6 +1,7 @@
 
 
 public class ReportData {
+    private Customer customerDetails;
     private int sumOfCosts;
     private int totalSquareCount;
     private int totalTriangleCount;
@@ -18,7 +19,8 @@ public class ReportData {
     private int blueCircle;
     private int yellowCircle;
 
-    public ReportData(int sumOfCosts, int totalSquareCount, int totalTriangleCount, int totalCircleCount, int totalRedCount, int totalBlueCount, int totalYellowCount) {
+    public ReportData(Customer customerDetails, int sumOfCosts, int totalSquareCount, int totalTriangleCount, int totalCircleCount, int totalRedCount, int totalBlueCount, int totalYellowCount) {
+        this.customerDetails = customerDetails;
         this.sumOfCosts = sumOfCosts;
         this.totalSquareCount = totalSquareCount;
         this.totalTriangleCount = totalTriangleCount;
@@ -26,6 +28,13 @@ public class ReportData {
         this.totalRedCount = totalRedCount;
         this.totalBlueCount = totalBlueCount;
         this.totalYellowCount = totalYellowCount;
+    }
+    public Customer getCustomerDetails() {
+        return customerDetails;
+    }
+
+    public void setCustomerDetails(Customer customerDetails) {
+        this.customerDetails = customerDetails;
     }
 
     public int getSumOfCosts() {

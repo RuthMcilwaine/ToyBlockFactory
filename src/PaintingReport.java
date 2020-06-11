@@ -1,6 +1,6 @@
 public class PaintingReport implements Report {
 
-    private ReportData reportData;
+    private final ReportData reportData;
 
 
     public PaintingReport(ReportData reportData) {
@@ -8,18 +8,19 @@ public class PaintingReport implements Report {
     }
 
     @Override
+    public ReportData getReportData() {
+        return reportData;
+    }
+
+    @Override
     public String printReport() {
-        return "Your cutting report has been generated: \n" +
+        return "\n\nYour painting report has been generated: \n\n" +
+
+                getReportData().getCustomerDetails() + "\n\n" +
 
                 "|          | red | blue | yellow | \n" +
                 "|  square  |  " + getReportData().getRedSquare() + "  |  " + getReportData().getBlueSquare() + "   |   " + getReportData().getYellowSquare() + "    | \n"
                 + "| triangle |  "  + getReportData().getRedTriangle() + "  |  "  + getReportData().getBlueTriangle() +  "   |   "  + getReportData().getYellowTriangle() +  "    | \n"
-                + "|  circle  |  " + getReportData().getRedCircle()+ "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n";
-    }
-
-
-    @Override
-    public ReportData getReportData() {
-        return reportData;
+                + "|  circle  |  " + getReportData().getRedCircle()+ "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n\n";
     }
 }

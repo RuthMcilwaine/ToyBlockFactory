@@ -5,12 +5,12 @@ import java.util.List;
 public class Order {
 
     private Customer customer;
-    private int totalOrders = 1;
-    private List<Block> blocks = new ArrayList<>();
     private String orderId;
+    private List<Block> blocks = new ArrayList<>();
 
 
-    public Order() { this.blocks = blocks; }
+    public Order() {
+    }
 
     public Customer getCustomer() {
         return customer;
@@ -21,7 +21,7 @@ public class Order {
     }
 
     public String getOrderId() {
-        orderId = String.format("E%04d", ++totalOrders);
+//        orderId = String.format("E%04d");
         return orderId;
     }
 

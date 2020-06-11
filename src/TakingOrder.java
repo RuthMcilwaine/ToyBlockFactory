@@ -7,6 +7,10 @@ public class TakingOrder {
     public TakingOrder() {
     }
 
+    public Order getOrder() {
+        return order;
+    }
+
     public void setOrder(Scanner input) {
         setCustomerDetails(input);
         setOrderDetails(input);
@@ -19,13 +23,13 @@ public class TakingOrder {
         order.setCustomer(new Customer(name, address, dueDate));
     }
 
-    private String validateAndSetInput(Scanner scanner, String type, String s, String s2) {
+    private String validateAndSetInput(Scanner scanner, String type, String s, String error) {
         String input;
         do {
             System.out.println(s);
             input = scanner.nextLine();
             if (!ValidateInput.validate(type, input)) {
-                System.out.println(s2);
+                System.out.println(error);
             } else {
                 break;
             }
@@ -59,9 +63,6 @@ public class TakingOrder {
         }
     }
 
-    public Order getOrder() {
-        return order;
-    }
 }
 
 

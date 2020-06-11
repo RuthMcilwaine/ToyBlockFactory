@@ -84,7 +84,7 @@ public class ReportGeneratorTests {
     }
 
     @Test
-    void invoiceAddsRedCircleWhenInOrder() {
+    void invoiceDisplayShowsRedCircleWhenOneIsOrdered() {
         order.add(new Block(PaintColour.RED, Shape.CIRCLE));
         Report report = reportGenerator.createInvoiceReport(order);
 

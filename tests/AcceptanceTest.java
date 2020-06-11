@@ -17,7 +17,7 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Report report = reportGenerator.createInvoice(order);
+        Report report = reportGenerator.createInvoiceReport(order);
         Assertions.assertEquals(16, report.getReportData().getSumOfCosts());
     }
 
@@ -32,8 +32,8 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Report report = reportGenerator.createInvoice(order);
-        Assertions.assertEquals(2, report.getTotalSquareCount(), "Not the correct number of squares in the order");
+        Report report = reportGenerator.createInvoiceReport(order);
+        Assertions.assertEquals(2, report.getReportData().getTotalSquareCount(), "Not the correct number of squares in the order");
     }
 
     @Test
@@ -47,8 +47,8 @@ public class AcceptanceTest {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
 
-        Report report = reportGenerator.createInvoice(order);
-        Assertions.assertEquals(3, report.getTotalBlueCount(), "Not the correct number of blue paint items in the order");
+        Report report = reportGenerator.createInvoiceReport(order);
+        Assertions.assertEquals(3, report.getReportData().getTotalBlueCount(), "Not the correct number of blue paint items in the order");
     }
 }
 

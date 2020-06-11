@@ -12,7 +12,9 @@ public class Main {
 
         takingOrder.setOrder(input);
 
-        Report report = reportGenerator.createInvoice(takingOrder.getOrder());
-        System.out.println(report.printReport());
+        Report invoiceReport = reportGenerator.createInvoiceReport(takingOrder.getOrder());
+        System.out.println(invoiceReport.printReport());
+        Report cuttingReport = reportGenerator.createCuttingReport(takingOrder.getOrder());
+        System.out.println(cuttingReport.printReport());
     }
 }

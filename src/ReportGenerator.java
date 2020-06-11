@@ -29,7 +29,7 @@ public class ReportGenerator {
         pricePerShape.put(Shape.CIRCLE, 3);
     }
 
-    public Report createInvoice(Order order) {
+    public Report createInvoiceReport(Order order) {
         getReport(order);
         return invoiceReport;
     }
@@ -64,7 +64,7 @@ public class ReportGenerator {
 
         invoiceReport = new InvoiceReport(report);
         cuttingReport = new CuttingReport(report);
-//        paintingReport = new Report(report);
+        paintingReport = new PaintingReport(report);
     }
 
 

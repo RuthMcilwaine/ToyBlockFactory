@@ -13,9 +13,9 @@ public class CuttingReport implements Report {
         return "Your cutting report has been generated: \n" +
 
                 "|          | Qty | \n" +
-                "|  square  |  " + reportData.getTotalSquareCount() + "  |  \n"
-                + "| triangle |  " + reportData.getTotalTriangleCount() + "  |  \n"
-                + "|  circle  |  " + reportData.getTotalCircleCount() + "  |  \n";
+                "|  square  |  " + getReportData().getTotalSquareCount() + "  |  \n"
+                + "| triangle |  " + getReportData().getTotalTriangleCount() + "  |  \n"
+                + "|  circle  |  " + getReportData().getTotalCircleCount() + "  |  \n";
 
     }
 

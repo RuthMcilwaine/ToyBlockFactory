@@ -1,40 +1,42 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class Order {
+class Order {
 
     private Customer customer;
-    private String orderId;
+    private int orderId;
     private List<Block> blocks = new ArrayList<>();
 
 
-    public Order() {
+    Order() {
     }
 
-    public Customer getCustomer() {
+    Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public String getOrderId() {
-//        orderId = String.format("E%04d");
+    int getOrderId() {
+        AtomicInteger seq = new AtomicInteger();
+        orderId = seq.incrementAndGet();
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
-    public List<Block> getBlocks() {
+    List<Block> getBlocks() {
         return blocks;
     }
 
 
-    public void add(Block block) {
+    void add(Block block) {
         if (!block.equals("")) {
             blocks.add(block);
         }

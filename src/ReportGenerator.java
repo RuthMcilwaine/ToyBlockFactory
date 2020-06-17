@@ -2,8 +2,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class ReportGenerator {
-    private Customer customerDetails;
+class ReportGenerator {
+//    private Customer customerDetails;
     private int sumOfCosts;
     private int totalSquareCount;
     private int totalTriangleCount;
@@ -19,30 +19,32 @@ public class ReportGenerator {
     private int yellowCircle;
 
 
-    Map<Shape, Integer> pricePerShape = new HashMap<>();
+    private Map<Shape, Integer> pricePerShape = new HashMap<>();
 
-    public ReportGenerator() {
+    ReportGenerator() {
         pricePerShape.put(Shape.SQUARE, 1);
         pricePerShape.put(Shape.TRIANGLE, 2);
         pricePerShape.put(Shape.CIRCLE, 3);
     }
 
-    public Report createInvoiceReport(Order order) {
+    Report createInvoiceReport(Order order) {
         ReportData reportData = getReportData(order);
         return new InvoiceReport(reportData);
     }
 
-    public Report createCuttingReport(Order order) {
+    Report createCuttingReport(Order order) {
         ReportData reportData = getReportData(order);
         return new CuttingReport(reportData);
     }
 
-    public Report createPaintingReport(Order order) {
+    Report createPaintingReport(Order order) {
         ReportData reportData = getReportData(order);
         return new PaintingReport(reportData);
     }
 
-    public ReportData getReportData(Order order) {
+    private ReportData getReportData(Order order) {
+        Customer customerDetails = order.getCustomer();
+
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
 
@@ -56,6 +58,7 @@ public class ReportGenerator {
         int totalYellowCount = yellowSquare + yellowTriangle + yellowCircle;
 
         ReportData reportData = new ReportData(customerDetails, sumOfCosts, totalSquareCount, totalTriangleCount, totalCircleCount, totalRedCount, totalBlueCount, totalYellowCount);
+        reportData.setCustomerDetails(customerDetails);
         reportData.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
         reportData.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
         reportData.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);

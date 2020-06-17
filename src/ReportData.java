@@ -29,79 +29,78 @@ public class ReportData {
         this.totalBlueCount = totalBlueCount;
         this.totalYellowCount = totalYellowCount;
     }
-    public Customer getCustomerDetails() {
-        return customerDetails;
-    }
 
-    public void setCustomerDetails(Customer customerDetails) {
-        this.customerDetails = customerDetails;
-    }
+    Customer getCustomerDetails() { return customerDetails; }
 
-    public int getSumOfCosts() {
+    int getSumOfCosts() {
         return sumOfCosts;
     }
 
-    public int getTotalRedCount() {
+    int getTotalRedCount() {
         return totalRedCount;
     }
 
-    public int getTotalBlueCount() {
+    int getTotalBlueCount() {
         return totalBlueCount;
     }
 
-    public int getTotalYellowCount() {
+    int getTotalYellowCount() {
         return totalYellowCount;
     }
 
-    public int getTotalSquareCount() {
+    int getTotalSquareCount() {
         return totalSquareCount;
     }
 
-    public int getTotalTriangleCount() { return totalTriangleCount; }
+    int getTotalTriangleCount() { return totalTriangleCount; }
 
-    public int getTotalCircleCount() { return totalCircleCount; }
+    int getTotalCircleCount() { return totalCircleCount; }
 
-    public int getRedSquare() {
+    int getRedSquare() {
         return redSquare;
     }
 
-    public int getBlueSquare() {
+    int getBlueSquare() {
         return blueSquare;
     }
 
-    public int getYellowSquare() {
+    int getYellowSquare() {
         return yellowSquare;
     }
 
-    public int getRedTriangle() { return redTriangle; }
+    int getRedTriangle() { return redTriangle; }
 
-    public int getBlueTriangle() { return blueTriangle; }
+    int getBlueTriangle() { return blueTriangle; }
 
-    public int getYellowTriangle() { return yellowTriangle; }
+    int getYellowTriangle() { return yellowTriangle; }
 
-    public int getBlueCircle() { return blueCircle; }
+    int getBlueCircle() { return blueCircle; }
 
-    public int getRedCircle() { return redCircle; }
+    int getRedCircle() { return redCircle; }
 
-    public int getYellowCircle() { return yellowCircle; }
+    int getYellowCircle() { return yellowCircle; }
 
-    public int getTriangleCounter() { return totalTriangleCount; }
+    int getTriangleCounter() { return totalTriangleCount; }
 
-    public int getCircleCounter() { return totalCircleCount; }
+    int getCircleCounter() { return totalCircleCount; }
 
-    public void setSquarePaintColours(int redSquare, int blueSquare, int yellowSquare) {
+    void setCustomerDetails(Customer customerDetails) {
+        this.customerDetails = customerDetails;
+    }
+
+    void setSquarePaintColours(int redSquare, int blueSquare, int yellowSquare) {
         this.redSquare = redSquare;
         this.blueSquare = blueSquare;
         this.yellowSquare = yellowSquare;
     }
 
-    public void setCirclePaintColours(int redCircle, int blueCircle, int yellowCircle) {
+    void setCirclePaintColours(int redCircle, int blueCircle, int yellowCircle) {
         this.redCircle = redCircle;
         this.blueCircle = blueCircle;
         this.yellowCircle = yellowCircle;
     }
 
-    public void setTrianglePaintColours(int redTriangle,int blueTriangle, int yellowTriangle) {
+    void setTrianglePaintColours(int redTriangle, int blueTriangle, int yellowTriangle) {
         this.redTriangle = redTriangle;
         this.blueTriangle = blueTriangle;
         this.yellowTriangle = yellowTriangle;

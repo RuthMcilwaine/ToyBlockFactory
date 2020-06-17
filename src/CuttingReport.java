@@ -18,9 +18,9 @@ public class CuttingReport implements Report {
 
                 getReportData().getCustomerDetails() + "\n\n" +
                 "|          | Qty   | \n" +
-                "|  square  |  " + getReportData().getTotalSquareCount() + "  |  \n"
-                + "| triangle |  " + getReportData().getTotalTriangleCount() + "   |  \n"
-                + "|  circle  |  " + getReportData().getTotalCircleCount() + "   |  \n\n";
+                "|  square  |  " + getReportData().getTotalSquareCount() + "    |  \n"
+                + "| triangle |  " + getReportData().getTotalTriangleCount() + "    |  \n"
+                + "|  circle  |  " + getReportData().getTotalCircleCount() + "    |  \n\n";
 
     }
 }

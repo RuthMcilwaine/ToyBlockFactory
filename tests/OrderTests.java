@@ -11,8 +11,8 @@ class OrderTests {
 
     @Test
     void canGenerateNewOrderIdForNewOrder() {
-        order.setOrderId("E0002");
-        Assertions.assertEquals("E0002", order.getOrderId());
+        order.setOrderId(0001);
+        Assertions.assertEquals(0001, order.getOrderId());
     }
     @Test
     void generateOrderWithNoBlocks() {

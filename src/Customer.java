@@ -11,7 +11,7 @@ public class Customer {
         this.dueDate = dueDate;
     }
 
-    public String getCustomerDetails() {
+    public String toString() {
         return "Name: " + name +
                 ", Address: " + address +
                 ", Due Date: " + dueDate;

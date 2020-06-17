@@ -2,7 +2,7 @@ public class InvoiceReport implements Report {
 
     private final ReportData reportData;
 
-    public InvoiceReport(ReportData reportData) {
+    InvoiceReport(ReportData reportData) {
         this.reportData = reportData;
     }
 
@@ -22,10 +22,10 @@ public class InvoiceReport implements Report {
                 + "| triangle |  "  + getReportData().getRedTriangle() + "  |  "  + getReportData().getBlueTriangle() +  "   |   "  + getReportData().getYellowTriangle() +  "    | \n"
                 + "|  circle  |  " + getReportData().getRedCircle()+ "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n" +
 
-                "Squares " + getReportData().getTotalSquareCount() + " @ $1 ppi =  $" + getReportData().getTotalSquareCount()* 1 + "\n" +
+                "Squares " + getReportData().getTotalSquareCount() + " @ $1 ppi =  $" + getReportData().getTotalSquareCount() + "\n" +
                 "Triangles " + getReportData().getTotalTriangleCount() + " @ $2 ppi =  $" + getReportData().getTotalTriangleCount() * 2 + "\n" +
                 "Circles " + getReportData().getTotalCircleCount() + " @ $3 ppi =  $" + getReportData().getTotalCircleCount() * 3 + "\n" +
-                "Red colour surcharge " + getReportData().getTotalRedCount() + " @ $1 ppi =  $" + getReportData().getTotalRedCount() * 1 + "\n\n" +
+                "Red colour surcharge " + getReportData().getTotalRedCount() + " @ $1 ppi =  $" + getReportData().getTotalRedCount() + "\n\n" +
                 "Total:  $" + getReportData().getSumOfCosts() + "\n\n";
     }
 }

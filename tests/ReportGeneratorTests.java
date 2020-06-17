@@ -1,9 +1,10 @@
+import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ReportGeneratorTests {
-    Order order = new Order();
-    ReportGenerator reportGenerator = new ReportGenerator();
+class ReportGeneratorTests {
+    private Order order = new Order();
+    private ReportGenerator reportGenerator = new ReportGenerator();
 
     @Test
     void invoiceHasCorrectNumberOfSquares() {
@@ -47,11 +48,17 @@ public class ReportGeneratorTests {
 
     @Test
     void invoiceAddsRedSquareWhenInOrder() {
+        Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
+        ;
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
+
+//        reportGenerator.setCustomerDetails(customer);
         Report report = reportGenerator.createInvoiceReport(order);
+        report.getReportData().setCustomerDetails(customer);
 
         Assertions.assertEquals(1, report.getReportData().getRedSquare(), "Not the correct number of red paint items in the order");
-        Assertions.assertEquals("Your invoice report has been generated: " + "\n" +
+        Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
+                "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
                 "|          | red | blue | yellow | " + "\n" +
                 "|  square  |  1  |  0   |   0    | " + "\n" +
                 "| triangle |  0  |  0   |   0    | " + "\n" +
@@ -59,18 +66,22 @@ public class ReportGeneratorTests {
                 "Squares 1 @ $1 ppi =  $1" + "\n" +
                 "Triangles 0 @ $2 ppi =  $0" + "\n" +
                 "Circles 0 @ $3 ppi =  $0" + "\n" +
-                "Red colour surcharge 1 @ $1 ppi =  $1" + "\n" + "\n" +
+                "Red colour surcharge 1 @ $1 ppi =  $1\n\n" +
 
-                "Total:  $2", report.printReport());
+                "Total:  $2\n\n", report.printReport());
     }
 
     @Test
     void invoiceAddsRedTriangleWhenInOrder() {
+        Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
         order.add(new Block(PaintColour.RED, Shape.TRIANGLE));
+
         Report report = reportGenerator.createInvoiceReport(order);
+        report.getReportData().setCustomerDetails(customer);
 
         Assertions.assertEquals(1, report.getReportData().getRedTriangle(), "Not the correct number of red paint items in the order");
-        Assertions.assertEquals("Your invoice report has been generated: " + "\n" +
+        Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
+                "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
                 "|          | red | blue | yellow | " + "\n" +
                 "|  square  |  0  |  0   |   0    | " + "\n" +
                 "| triangle |  1  |  0   |   0    | " + "\n" +
@@ -78,18 +89,22 @@ public class ReportGeneratorTests {
                 "Squares 0 @ $1 ppi =  $0" + "\n" +
                 "Triangles 1 @ $2 ppi =  $2" + "\n" +
                 "Circles 0 @ $3 ppi =  $0" + "\n" +
-                "Red colour surcharge 1 @ $1 ppi =  $1" + "\n" + "\n" +
+                "Red colour surcharge 1 @ $1 ppi =  $1\n\n" +
 
-                "Total:  $3", report.printReport());
+                "Total:  $3\n\n", report.printReport());
     }
 
     @Test
     void invoiceDisplayShowsRedCircleWhenOneIsOrdered() {
+        Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
         order.add(new Block(PaintColour.RED, Shape.CIRCLE));
-        Report report = reportGenerator.createInvoiceReport(order);
 
+        Report report = reportGenerator.createInvoiceReport(order);
+        report.getReportData().setCustomerDetails(customer);
         Assertions.assertEquals(1, report.getReportData().getRedCircle(), "Not the correct number of red paint items in the order");
-        Assertions.assertEquals("Your invoice report has been generated: " + "\n" +
+        Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
+                "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
+
                 "|          | red | blue | yellow | " + "\n" +
                 "|  square  |  0  |  0   |   0    | " + "\n" +
                 "| triangle |  0  |  0   |   0    | " + "\n" +
@@ -97,8 +112,8 @@ public class ReportGeneratorTests {
                 "Squares 0 @ $1 ppi =  $0" + "\n" +
                 "Triangles 0 @ $2 ppi =  $0" + "\n" +
                 "Circles 1 @ $3 ppi =  $3" + "\n" +
-                "Red colour surcharge 1 @ $1 ppi =  $1" + "\n" + "\n" +
+                "Red colour surcharge 1 @ $1 ppi =  $1\n\n" +
 
-                "Total:  $4", report.printReport());
+                "Total:  $4\n\n", report.printReport());
     }
 }

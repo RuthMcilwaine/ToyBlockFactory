@@ -5,28 +5,30 @@ The toy block factory takes an order from a customer and generates an invoice de
 ![Swimlanes Sequence Diagram](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/toyblockfactory-sequence-diagram.png)
 
 
-##Getting Started
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-Open the terminal
-cd to where you want to save the project
-To clone the repository type : git clone git@github.com:RuthMcilwaine/ToyBlockFactory.git
-cd into the ./ToyBlockFactory/src directory
-$ javac -d ../classes *.java
-$ cd ../classes 
-$ jar cvf ToyBlockFactory.jar *
-$ jar tf ToyBlockFactory.jar
-java Main (to start to program).
+
+* Open the terminal
+* cd to where you want to save the project
+* To clone the repository type : git clone git@github.com:RuthMcilwaine/ToyBlockFactory.git
+* cd into the ./ToyBlockFactory/src directory
+* $ javac -d ../classes *.java
+* $ cd ../classes 
+* $ jar cvf ToyBlockFactory.jar *
+* $ jar tf ToyBlockFactory.jar
+* $ java Main (to start to program).
 
 
-##Prerequisites
+##  Prerequisites
 
-What things you need to install the software and how to install them
-Install JDK 11. Follow instructions at the link:
-https://www.oracle.com/au/java/technologies/javase-downloads.html 
+What things you need to install the software and how to install them.
+
+Install JDK 11. Follow instructions at the link: https://www.oracle.com/au/java/technologies/javase-downloads.html 
+
 Install the latest version of IntelliJ.  Follow instructions at the link: https://www.jetbrains.com/idea/download/#section=mac
 
-##Installing
+## Installing
 
 Once the program has downloaded, transfer to Applications directory. When this is finished, open the Applications directory and double click on IntelliJ to open it.
 
@@ -46,16 +48,16 @@ Apply the changes and close the dialog.
 ![install-4](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-4.png)
 
 
-##Running the tests
+## Running the tests
 
 Once the project is open in the IDE, the file structure can be viewed from the left. Double click on the tests directory and from the dropdown, click on the option to run ‘All Tests’.
 ![running-all-tests](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/running-all-tests.png)
 
-##Break down into end to end tests
+## Break down into end to end tests
 
 E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity and to ensure that it behaves as expected.
 
-###Example:
+### Example:
 ```
 @Test
 void setsOneBlockToOrderWhenOneIsEntered() {
@@ -64,7 +66,9 @@ void setsOneBlockToOrderWhenOneIsEntered() {
 }
 ```
 
-##Built With
+## Built With
+
 Javac - the java compiler
+
 Jar - java archive file
 

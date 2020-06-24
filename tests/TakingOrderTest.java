@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 class TakingOrderTest {
     TakingOrder takingOrder = new TakingOrder();
+    String customerDetails = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
 
     @Test
     void noBlocksAreSetInOrderWhenZeroIsEntered() {
@@ -29,7 +30,7 @@ class TakingOrderTest {
     void customerDetailsAreEnteredAndSetToOrder() {
         Scanner input = getScanner("Mark Pearl\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
-        String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
+        String expected = customerDetails;
         String actual = takingOrder.order.getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
@@ -39,7 +40,7 @@ class TakingOrderTest {
     void customerNameIsInValid() {
         Scanner input = getScanner("Mark P&^rl\nMark Pearl\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
-        String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
+        String expected = customerDetails;
         String actual = takingOrder.order.getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
@@ -47,10 +48,9 @@ class TakingOrderTest {
 
     @Test
     void customerAddressIsInValid() {
-        TakingOrder takingOrder = new TakingOrder();
         Scanner input = getScanner("Mark Pearl\n1 B*b Avenue\n1 Bob Avenue\n19/01/2019\n");
         takingOrder.setCustomerDetails(input);
-        String expected = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
+        String expected = customerDetails;
         String actual = takingOrder.order.getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);

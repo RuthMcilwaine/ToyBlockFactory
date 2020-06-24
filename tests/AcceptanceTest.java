@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class AcceptanceTest {
+class AcceptanceTest {
     Order order = new Order();
     ReportGenerator reportGenerator = new ReportGenerator();
 

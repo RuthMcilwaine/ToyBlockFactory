@@ -48,7 +48,6 @@ class ReportGeneratorTests {
     @Test
     void invoiceAddsRedSquareWhenInOrder() {
         Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
-
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
 
         Report report = reportGenerator.createInvoiceReport(order);
@@ -113,5 +112,12 @@ class ReportGeneratorTests {
                 "Red colour surcharge 1 @ $1 ppi =  $1\n\n" +
 
                 "Total:  $4\n\n", report.printReport());
+    }
+
+    @Test
+    void invoiceDisplayWhenOrderIsEmpty() {
+
+        Report report = new ReportStub();
+        Assertions.assertEquals("", report.printReport());
     }
 }

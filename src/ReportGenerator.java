@@ -1,9 +1,7 @@
-
 import java.util.HashMap;
 import java.util.Map;
 
 class ReportGenerator {
-//    private Customer customerDetails;
     private int sumOfCosts;
     private int totalSquareCount;
     private int totalTriangleCount;
@@ -17,7 +15,6 @@ class ReportGenerator {
     private int redCircle;
     private int blueCircle;
     private int yellowCircle;
-
 
     private Map<Shape, Integer> pricePerShape = new HashMap<>();
 
@@ -67,7 +64,7 @@ class ReportGenerator {
     }
 
     private Integer getPrice(Block block) {
-        if (block.getPaintcolour().equals(PaintColour.RED)) {
+        if (block.getPaintColour().equals(PaintColour.RED)) {
             return pricePerShape.get(block.getShape()) + 1;
         }
         return pricePerShape.get(block.getShape());
@@ -77,9 +74,9 @@ class ReportGenerator {
         if (block.getShape().equals(Shape.SQUARE)) {
             totalSquareCount++;
 
-            redSquare = incrementingRedValue(block.getPaintcolour(), redSquare);
-            blueSquare = incrementingBlueValue(block.getPaintcolour(), blueSquare);
-            yellowSquare = incrementingYellowValue(block.getPaintcolour(), yellowSquare);
+            redSquare = incrementingRedValue(block.getPaintColour(), redSquare);
+            blueSquare = incrementingBlueValue(block.getPaintColour(), blueSquare);
+            yellowSquare = incrementingYellowValue(block.getPaintColour(), yellowSquare);
         }
     }
 
@@ -87,9 +84,9 @@ class ReportGenerator {
         if (block.getShape().equals(Shape.TRIANGLE)) {
             totalTriangleCount++;
 
-            redTriangle = incrementingRedValue(block.getPaintcolour(), redTriangle);
-            blueTriangle = incrementingBlueValue(block.getPaintcolour(), blueTriangle);
-            yellowTriangle = incrementingYellowValue(block.getPaintcolour(), yellowTriangle);
+            redTriangle = incrementingRedValue(block.getPaintColour(), redTriangle);
+            blueTriangle = incrementingBlueValue(block.getPaintColour(), blueTriangle);
+            yellowTriangle = incrementingYellowValue(block.getPaintColour(), yellowTriangle);
         }
     }
 
@@ -98,9 +95,9 @@ class ReportGenerator {
         if (block.getShape().equals(Shape.CIRCLE)) {
             totalCircleCount++;
 
-            redCircle = incrementingRedValue(block.getPaintcolour(), redCircle);
-            blueCircle = incrementingBlueValue(block.getPaintcolour(), blueCircle);
-            yellowCircle = incrementingYellowValue(block.getPaintcolour(), yellowCircle);
+            redCircle = incrementingRedValue(block.getPaintColour(), redCircle);
+            blueCircle = incrementingBlueValue(block.getPaintColour(), blueCircle);
+            yellowCircle = incrementingYellowValue(block.getPaintColour(), yellowCircle);
         }
     }
 

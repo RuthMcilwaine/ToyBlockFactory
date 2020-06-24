@@ -13,7 +13,7 @@ class TakingOrderTest {
     }
 
     @Test
-    void setsOneBlockToOrderWhenNumberOneIsEntered() {
+    void setsOneBlockToOrderWhenOneIsEntered() {
         int actual = takingOrder.questionAnswer(getScanner("1"), "");
         Assert.assertEquals(1, actual);
     }

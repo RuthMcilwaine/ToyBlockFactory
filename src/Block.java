@@ -3,15 +3,13 @@ public class Block {
     private PaintColour paintcolour;
     private Shape shape;
 
-
-    public PaintColour getPaintcolour() {
+    PaintColour getPaintColour() {
         return paintcolour;
     }
 
-    public Shape getShape() {
+    Shape getShape() {
         return shape;
     }
-
 
     public Block(PaintColour paintcolour, Shape shape) {
         this.paintcolour = paintcolour;

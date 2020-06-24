@@ -4,9 +4,6 @@ import java.util.Scanner;
 class TakingOrder {
     Order order = new Order();
 
-    TakingOrder() {
-    }
-
     Order getOrder() {
         return order;
     }

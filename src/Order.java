@@ -1,17 +1,11 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class Order {
-
     private Customer customer;
     private int orderId;
     private List<Block> blocks = new ArrayList<>();
-
-
-    Order() {
-    }
 
     Customer getCustomer() {
         return customer;

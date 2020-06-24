@@ -1,5 +1,4 @@
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ class OrderTests {
     @Test
     void generateOrderWithNoBlocks() {
         int actual = order.getBlocks().size();
-        Assert.assertEquals(0, actual);
+        Assertions.assertEquals(0, actual);
     }
 
     @Test
@@ -25,8 +24,8 @@ class OrderTests {
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
 
-        Assert.assertEquals(1, order.getBlocks().size());
-        Assert.assertEquals(expected, order.getBlocks().get(0));
+        Assertions.assertEquals(1, order.getBlocks().size());
+        Assertions.assertEquals(expected, order.getBlocks().get(0));
     }
 
     @Test
@@ -35,8 +34,8 @@ class OrderTests {
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
 
-        Assert.assertEquals(2, order.getBlocks().size());
-        Assert.assertEquals(expected, order.getBlocks().get(1));
+        Assertions.assertEquals(2, order.getBlocks().size());
+        Assertions.assertEquals(expected, order.getBlocks().get(1));
     }
 
     @Test
@@ -46,7 +45,7 @@ class OrderTests {
         List<Block> expected = order.getBlocks();
         List<Block> actual = new ArrayList<Block>(Arrays.asList(new Block(PaintColour.RED, Shape.SQUARE), new Block(PaintColour.BLUE, Shape.SQUARE)));
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -58,8 +57,8 @@ class OrderTests {
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
 
-        Assert.assertEquals(5, order.getBlocks().size());
-        Assert.assertEquals(expected, order.getBlocks().get(4));
+        Assertions.assertEquals(5, order.getBlocks().size());
+        Assertions.assertEquals(expected, order.getBlocks().get(4));
     }
 }
 

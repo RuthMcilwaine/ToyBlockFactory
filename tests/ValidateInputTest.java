@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class ValidateInputTest {
 
     @Test
-    void customerNameInputIsValid() {
+    void customerNameInputIsValidWithDiacritic() {
         boolean expected = ValidateInput.validateName("Mark Müller");
         Assertions.assertTrue(expected);
     }

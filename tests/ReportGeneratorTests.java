@@ -48,10 +48,9 @@ class ReportGeneratorTests {
     @Test
     void invoiceAddsRedSquareWhenInOrder() {
         Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
-        ;
+
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
 
-//        reportGenerator.setCustomerDetails(customer);
         Report report = reportGenerator.createInvoiceReport(order);
         report.getReportData().setCustomerDetails(customer);
 

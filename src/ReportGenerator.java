@@ -2,10 +2,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 class ReportGenerator {
-    private int sumOfCosts;
-    private int totalSquareCount;
-    private int totalTriangleCount;
-    private int totalCircleCount;
     private int redSquare;
     private int blueSquare;
     private int yellowSquare;
@@ -41,6 +37,7 @@ class ReportGenerator {
 
     private ReportData getReportData(Order order) {
         Customer customerDetails = order.getCustomer();
+        int sumOfCosts = 0;
 
         for (Block block : order.getBlocks()) {
             sumOfCosts += getPrice(block);
@@ -50,16 +47,12 @@ class ReportGenerator {
             countCirclesPaintColoursFromOrder(block);
         }
 
-        int totalRedCount = redSquare + redTriangle + redCircle;
-        int totalBlueCount = blueSquare + blueTriangle + blueCircle;
-        int totalYellowCount = yellowSquare + yellowTriangle + yellowCircle;
-
-        ReportData reportData = new ReportData(customerDetails, sumOfCosts, totalSquareCount, totalTriangleCount, totalCircleCount, totalRedCount, totalBlueCount, totalYellowCount);
+        ReportData reportData = new ReportData();
         reportData.setCustomerDetails(customerDetails);
         reportData.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
         reportData.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
         reportData.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);
-
+        reportData.setSumOfCosts(sumOfCosts);
         return reportData;
     }
 
@@ -70,9 +63,9 @@ class ReportGenerator {
         return pricePerShape.get(block.getShape());
     }
 
+
     private void countSquaresPaintColoursFromOrder(Block block) {
         if (block.getShape().equals(Shape.SQUARE)) {
-            totalSquareCount++;
 
             redSquare = incrementingRedValue(block.getPaintColour(), redSquare);
             blueSquare = incrementingBlueValue(block.getPaintColour(), blueSquare);
@@ -82,7 +75,6 @@ class ReportGenerator {
 
     private void countTrianglesPaintColoursFromOrder(Block block) {
         if (block.getShape().equals(Shape.TRIANGLE)) {
-            totalTriangleCount++;
 
             redTriangle = incrementingRedValue(block.getPaintColour(), redTriangle);
             blueTriangle = incrementingBlueValue(block.getPaintColour(), blueTriangle);
@@ -93,7 +85,6 @@ class ReportGenerator {
 
     private void countCirclesPaintColoursFromOrder(Block block) {
         if (block.getShape().equals(Shape.CIRCLE)) {
-            totalCircleCount++;
 
             redCircle = incrementingRedValue(block.getPaintColour(), redCircle);
             blueCircle = incrementingBlueValue(block.getPaintColour(), blueCircle);

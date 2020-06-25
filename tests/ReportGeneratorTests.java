@@ -10,7 +10,7 @@ class ReportGeneratorTests {
         order.add(new Block(PaintColour.BLUE, Shape.SQUARE));
         Report report = reportGenerator.createInvoiceReport(order);
 
-        Assertions.assertEquals(1, report.getReportData().getTotalSquareCount(), "Not the correct number of squares in the order");
+        Assertions.assertEquals(1, report.getReportData().getTotalSquareCount());
     }
 
     @Test
@@ -18,7 +18,7 @@ class ReportGeneratorTests {
         order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
         Report report = reportGenerator.createInvoiceReport(order);
 
-        Assertions.assertEquals(1, report.getReportData().getTriangleCounter(), "Not the correct number of triangles in the order");
+        Assertions.assertEquals(1, report.getReportData().getTotalTriangleCount());
     }
 
     @Test
@@ -26,7 +26,9 @@ class ReportGeneratorTests {
         order.add(new Block(PaintColour.BLUE, Shape.CIRCLE));
         Report report = reportGenerator.createInvoiceReport(order);
 
-        Assertions.assertEquals(1, report.getReportData().getCircleCounter(), "Not the correct number of circles in the order");
+
+
+        Assertions.assertEquals(1, report.getReportData().getTotalCircleCount());
     }
 
     @Test
@@ -34,7 +36,7 @@ class ReportGeneratorTests {
         order.add(new Block(PaintColour.RED, Shape.CIRCLE));
         Report report = reportGenerator.createInvoiceReport(order);
 
-        Assertions.assertEquals(1, report.getReportData().getTotalRedCount(), "Not the correct number of red paint items in the order");
+        Assertions.assertEquals(1, report.getReportData().getTotalRedCount());
     }
 
     @Test
@@ -42,7 +44,7 @@ class ReportGeneratorTests {
         order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
         Report report = reportGenerator.createInvoiceReport(order);
 
-        Assertions.assertEquals(1, report.getReportData().getYellowCircle(), "Not the correct number of yellow paint items in the order");
+        Assertions.assertEquals(1, report.getReportData().getYellowCircle());
     }
 
     @Test
@@ -53,7 +55,7 @@ class ReportGeneratorTests {
         Report report = reportGenerator.createInvoiceReport(order);
         report.getReportData().setCustomerDetails(customer);
 
-        Assertions.assertEquals(1, report.getReportData().getRedSquare(), "Not the correct number of red paint items in the order");
+        Assertions.assertEquals(1, report.getReportData().getRedSquare());
         Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
                 "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
                 "|          | red | blue | yellow | " + "\n" +
@@ -76,7 +78,7 @@ class ReportGeneratorTests {
         Report report = reportGenerator.createInvoiceReport(order);
         report.getReportData().setCustomerDetails(customer);
 
-        Assertions.assertEquals(1, report.getReportData().getRedTriangle(), "Not the correct number of red paint items in the order");
+        Assertions.assertEquals(1, report.getReportData().getRedTriangle());
         Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
                 "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
                 "|          | red | blue | yellow | " + "\n" +
@@ -98,7 +100,7 @@ class ReportGeneratorTests {
 
         Report report = reportGenerator.createInvoiceReport(order);
         report.getReportData().setCustomerDetails(customer);
-        Assertions.assertEquals(1, report.getReportData().getRedCircle(), "Not the correct number of red paint items in the order");
+        Assertions.assertEquals(1, report.getReportData().getRedCircle());
         Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
                 "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
 
@@ -114,10 +116,4 @@ class ReportGeneratorTests {
                 "Total:  $4\n\n", report.printReport());
     }
 
-    @Test
-    void invoiceDisplayWhenOrderIsEmpty() {
-
-        Report report = new ReportStub();
-        Assertions.assertEquals("", report.printReport());
-    }
 }

@@ -17,10 +17,10 @@ public class CuttingReport implements Report {
         return "\n\nYour cutting report has been generated: \n\n" +
 
                 getReportData().getCustomerDetails() + "\n\n" +
-                "|          | Qty   | \n" +
-                "|  square  |  " + getReportData().getTotalSquareCount() + "    |  \n"
-                + "| triangle |  " + getReportData().getTotalTriangleCount() + "    |  \n"
-                + "|  circle  |  " + getReportData().getTotalCircleCount() + "    |  \n\n";
+                "|          | Qty |\n" +
+                "|  square  |  " + getReportData().getTotalSquareCount() + "  |\n"
+                + "| triangle |  " + getReportData().getTotalTriangleCount() + "  |\n"
+                + "|  circle  |  " + getReportData().getTotalCircleCount() + "  |\n\n";
 
     }
 }

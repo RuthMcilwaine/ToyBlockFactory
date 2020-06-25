@@ -24,6 +24,7 @@ class OrderTests {
         Block expected = new Block(PaintColour.RED, Shape.SQUARE);
         order.add(expected);
 
+
         Assertions.assertEquals(1, order.getBlocks().size());
         Assertions.assertEquals(expected, order.getBlocks().get(0));
     }
@@ -42,8 +43,9 @@ class OrderTests {
     void canAddRedAndBlueSquaresToAnOrder() {
         order.add(new Block(PaintColour.RED, Shape.SQUARE));
         order.add(new Block(PaintColour.BLUE, Shape.SQUARE));
+
         List<Block> expected = order.getBlocks();
-        List<Block> actual = new ArrayList<Block>(Arrays.asList(new Block(PaintColour.RED, Shape.SQUARE), new Block(PaintColour.BLUE, Shape.SQUARE)));
+        List<Block> actual = new ArrayList<>(Arrays.asList(new Block(PaintColour.RED, Shape.SQUARE), new Block(PaintColour.BLUE, Shape.SQUARE)));
 
         Assertions.assertEquals(expected, actual);
     }

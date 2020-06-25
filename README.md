@@ -59,7 +59,7 @@ Once the project is open in the IDE, the file structure can be viewed from the l
 
 E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity and to ensure that it behaves as expected.
 
-![running-all-tests](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/test-pyramid.png)
+![test-pyramid](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/test-pyramid.png)
 
 
 ### Example:
@@ -71,7 +71,7 @@ E2E is testing the application's workflow from beginning to end. It aims to re
 
         Report report = reportGenerator.createInvoiceReport(order);
         report.getReportData().setCustomerDetails(customer);
-        Assertions.assertEquals(1, report.getReportData().getRedCircle(), "Not the correct number of red paint items in the order");
+        
         Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
                 "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
 

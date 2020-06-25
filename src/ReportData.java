@@ -43,10 +43,6 @@ public class ReportData {
         return redSquare;
     }
 
-    public void setRedSquare(int redSquare) {
-        this.redSquare = redSquare;
-    }
-
     public int getTotalRedCount() {
         return redTriangle + redSquare + redCircle;
     }

@@ -9,15 +9,17 @@ The toy block factory takes an order from a customer and generates an invoice de
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Open the terminal
-* cd to where you want to save the project
-* To clone the repository type : git clone git@github.com:RuthMcilwaine/ToyBlockFactory.git
-* cd into the ./ToyBlockFactory/src directory
-* $ javac -d ../classes *.java
-* $ cd ../classes 
-* $ jar cvf ToyBlockFactory.jar *
-* $ jar tf ToyBlockFactory.jar
-* $ java Main (to start to program).
+Open the terminal and cd into the directory where you want to save the project.
+
+```
+ $ git clone git@github.com:RuthMcilwaine/ToyBlockFactory.git
+ $ cd src
+ $ javac -d ../classes *.java
+ $ cd ../classes 
+ $ jar cvf ToyBlockFactory.jar *
+ $ jar tf ToyBlockFactory.jar
+ $ java Main (to start to program)
+ ```
 
 
 ##  Prerequisites
@@ -57,13 +59,33 @@ Once the project is open in the IDE, the file structure can be viewed from the l
 
 E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity and to ensure that it behaves as expected.
 
+![running-all-tests](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/test-pyramid.png)
+
+
 ### Example:
 ```
-@Test
-void setsOneBlockToOrderWhenOneIsEntered() {
-    int actual = takingOrder.questionAnswer(getScanner("1"), "");
-    Assert.assertEquals(1, actual);
-}
+ @Test
+    void orderIsSetAndInvoiceIsDisplayed() {
+        Customer customer = new Customer("Mark Pearl", "1 Bob Ave", "19/01/2019");
+        order.add(new Block(PaintColour.RED, Shape.CIRCLE));
+
+        Report report = reportGenerator.createInvoiceReport(order);
+        report.getReportData().setCustomerDetails(customer);
+        Assertions.assertEquals(1, report.getReportData().getRedCircle(), "Not the correct number of red paint items in the order");
+        Assertions.assertEquals("\n\nYour invoice report has been generated: \n\n" +
+                "Name: Mark Pearl, Address: 1 Bob Ave, Due Date: 19/01/2019\n\n" +
+
+                "|          | red | blue | yellow | " + "\n" +
+                "|  square  |  0  |  0   |   0    | " + "\n" +
+                "| triangle |  0  |  0   |   0    | " + "\n" +
+                "|  circle  |  1  |  0   |   0    | " + "\n" +
+                "Squares 0 @ $1 ppi =  $0" + "\n" +
+                "Triangles 0 @ $2 ppi =  $0" + "\n" +
+                "Circles 1 @ $3 ppi =  $3" + "\n" +
+                "Red colour surcharge 1 @ $1 ppi =  $1\n\n" +
+
+                "Total:  $4\n\n", report.printReport());
+    }
 ```
 
 ## Built With

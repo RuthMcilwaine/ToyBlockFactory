@@ -8,6 +8,11 @@ class TakingOrderTest {
     TakingOrder takingOrder = new TakingOrder();
     String customerDetails = "Name: Mark Pearl, Address: 1 Bob Avenue, Due Date: 19/01/2019";
 
+    private Scanner getScanner(String userInput) {
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
+        return new Scanner(in);
+    }
+
     @Test
     void noBlocksAreSetInOrderWhenZeroIsEntered() {
         int actual = takingOrder.questionAnswer(getScanner("0"), "");
@@ -38,7 +43,7 @@ class TakingOrderTest {
     }
 
     @Test
-    void customerNameIsInValid() {
+    void customerNameIsInvalid() {
         takingOrder.setCustomerDetails(getScanner("Mark P&^rl\nMark Pearl\n1 Bob Avenue\n19/01/2019\n"));
         String expected = customerDetails;
         String actual = takingOrder.getOrder().getCustomer().toString();
@@ -47,19 +52,12 @@ class TakingOrderTest {
     }
 
     @Test
-    void customerAddressIsInValid() {
+    void customerAddressIsInvalid() {
         takingOrder.setCustomerDetails(getScanner("Mark Pearl\n1 B*b Avenue\n1 Bob Avenue\n19/01/2019\n"));
         String expected = customerDetails;
         String actual = takingOrder.getOrder().getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
     }
-
-    private Scanner getScanner(String userInput) {
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
-        return new Scanner(in);
-    }
-
-
 }
 

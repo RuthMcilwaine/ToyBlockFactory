@@ -10,7 +10,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    void customerNameInputIsInValid() {
+    void customerNameInputIsInvalid() {
         boolean expected = ValidateInput.validateName("Mark P*^arl");
         Assertions.assertFalse(expected);
     }
@@ -22,13 +22,13 @@ public class ValidateInputTest {
     }
 
     @Test
-    void customerNameInputIsEmptyReturnsFalse() {
+    void customerNameInputWhenEmptyIsInvalid() {
         boolean expected = ValidateInput.validateName("");
         Assertions.assertFalse(expected);
     }
 
     @Test
-    void customerNameInputOverMax100CharactersReturnsFalse() {
+    void customerNameInputOverMax100CharactersIsInvalid() {
         boolean expected = ValidateInput.validateName("Ifdesigningaformordatabasethatwill acceptnamesfrompeoplewithavarietyofbackgroundsyoushouldaskyourselfwhether");
         Assertions.assertFalse(expected);
     }
@@ -40,13 +40,13 @@ public class ValidateInputTest {
     }
 
     @Test
-    void customerAddressInputIsInValid() {
+    void customerAddressInputIsInvalid() {
         boolean expected = ValidateInput.validateAddress("1 Bob Av&*nue, Auckland");
         Assertions.assertFalse(expected);
     }
 
     @Test
-    void dueDateInputIsInValid() {
+    void dueDateInputIsInvalid() {
         boolean expected = ValidateInput.validateDueDate("19/14/2019");
         Assertions.assertFalse(expected);
     }

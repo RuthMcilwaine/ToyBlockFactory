@@ -11,26 +11,26 @@ class Order {
         return customer;
     }
 
-    void setCustomer(Customer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    int getOrderId() {
+    public int getOrderId() {
         AtomicInteger seq = new AtomicInteger();
         orderId = seq.incrementAndGet();
         return orderId;
     }
 
-    void setOrderId(int orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
-    List<Block> getBlocks() {
+    public List<Block> getBlocks() {
         return blocks;
     }
 
 
-    void add(Block block) {
+    public void add(Block block) {
         if (!block.equals("")) {
             blocks.add(block);
         }

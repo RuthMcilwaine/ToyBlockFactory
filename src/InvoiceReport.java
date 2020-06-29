@@ -2,7 +2,7 @@ public class InvoiceReport implements Report {
 
     private final ReportData reportData;
 
-    InvoiceReport(ReportData reportData) {
+    public InvoiceReport(ReportData reportData) {
         this.reportData = reportData;
     }
 

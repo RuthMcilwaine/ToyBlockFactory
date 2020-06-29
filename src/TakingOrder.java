@@ -2,18 +2,18 @@
 import java.util.Scanner;
 
 class TakingOrder {
-    Order order = new Order();
+    private Order order = new Order();
 
-    Order getOrder() {
+    public Order getOrder() {
         return order;
     }
 
-    void setOrder(Scanner input) {
+    public void setOrder(Scanner input) {
         setCustomerDetails(input);
         setOrderDetails(input);
     }
 
-    void setCustomerDetails(Scanner input) {
+    public void setCustomerDetails(Scanner input) {
         String name = validateAndSetInput(input, "name", "Please input your Name: ", "Not a valid name. Please try again");
         String address = validateAndSetInput(input, "address", "Please input your Address: ", "Not a valid address. Please try again");
         String dueDate = validateAndSetInput(input, "dueDate", "Please input your Due Date (eg.19/01/2019): ", "Not a valid date. Please try again");
@@ -34,15 +34,14 @@ class TakingOrder {
         return input;
     }
 
-
-    int questionAnswer(Scanner scanner, String block) {
+    public int questionAnswer(Scanner scanner, String block) {
         String question = "Please input the number of ";
         String newLIne = ": ";
         System.out.println(question + block + newLIne);
         return scanner.nextInt();
     }
 
-    void setOrderDetails(Scanner input) {
+    public void setOrderDetails(Scanner input) {
         createBlocks(questionAnswer(input, "Red Squares"), PaintColour.RED, Shape.SQUARE);
         createBlocks(questionAnswer(input, "Blue Squares"), PaintColour.BLUE, Shape.SQUARE);
         createBlocks(questionAnswer(input, "Yellow Squares"), PaintColour.YELLOW, Shape.SQUARE);

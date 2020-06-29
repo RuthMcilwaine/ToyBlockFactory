@@ -14,23 +14,23 @@ class ReportGenerator {
 
     private Map<Shape, Integer> pricePerShape = new HashMap<>();
 
-    ReportGenerator() {
+    public ReportGenerator() {
         pricePerShape.put(Shape.SQUARE, 1);
         pricePerShape.put(Shape.TRIANGLE, 2);
         pricePerShape.put(Shape.CIRCLE, 3);
     }
 
-    Report createInvoiceReport(Order order) {
+    public Report createInvoiceReport(Order order) {
         ReportData reportData = getReportData(order);
         return new InvoiceReport(reportData);
     }
 
-    Report createCuttingReport(Order order) {
+    public Report createCuttingReport(Order order) {
         ReportData reportData = getReportData(order);
         return new CuttingReport(reportData);
     }
 
-    Report createPaintingReport(Order order) {
+    public Report createPaintingReport(Order order) {
         ReportData reportData = getReportData(order);
         return new PaintingReport(reportData);
     }

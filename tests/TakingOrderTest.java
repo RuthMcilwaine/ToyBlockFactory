@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
@@ -29,9 +30,9 @@ class TakingOrderTest {
 
     @Test
     void customerDetailsAreEnteredAndSetToOrder() {
-        takingOrder.setCustomerDetails( getScanner("Mark Pearl\n1 Bob Avenue\n19/01/2019\n"));
+        takingOrder.setCustomerDetails(getScanner("Mark Pearl\n1 Bob Avenue\n19/01/2019\n"));
         String expected = customerDetails;
-        String actual = takingOrder.order.getCustomer().toString();
+        String actual = takingOrder.getOrder().getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -40,7 +41,7 @@ class TakingOrderTest {
     void customerNameIsInValid() {
         takingOrder.setCustomerDetails(getScanner("Mark P&^rl\nMark Pearl\n1 Bob Avenue\n19/01/2019\n"));
         String expected = customerDetails;
-        String actual = takingOrder.order.getCustomer().toString();
+        String actual = takingOrder.getOrder().getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -49,7 +50,7 @@ class TakingOrderTest {
     void customerAddressIsInValid() {
         takingOrder.setCustomerDetails(getScanner("Mark Pearl\n1 B*b Avenue\n1 Bob Avenue\n19/01/2019\n"));
         String expected = customerDetails;
-        String actual = takingOrder.order.getCustomer().toString();
+        String actual = takingOrder.getOrder().getCustomer().toString();
 
         Assertions.assertEquals(expected, actual);
     }

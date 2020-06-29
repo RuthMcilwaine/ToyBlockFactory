@@ -1,6 +1,7 @@
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +14,7 @@ class OrderTests {
         order.setOrderId(0001);
         Assertions.assertEquals(0001, order.getOrderId());
     }
+
     @Test
     void generateOrderWithNoBlocks() {
         int actual = order.getBlocks().size();

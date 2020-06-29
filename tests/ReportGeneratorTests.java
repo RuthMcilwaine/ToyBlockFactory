@@ -5,8 +5,20 @@ class ReportGeneratorTests {
     private Order order = new Order();
     private ReportGenerator reportGenerator = new ReportGenerator();
 
+    private void addBlocksToOrder() {
+        order.add(new Block(PaintColour.RED, Shape.SQUARE));
+        order.add(new Block(PaintColour.YELLOW, Shape.SQUARE));
+        order.add(new Block(PaintColour.RED, Shape.TRIANGLE));
+        order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
+        order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
+        order.add(new Block(PaintColour.RED, Shape.CIRCLE));
+        order.add(new Block(PaintColour.BLUE, Shape.CIRCLE));
+        order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
+        order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
+    }
+
     @Test
-    void reportHasNoBlueSquaresWhenInOrder() {
+    void reportHasNoBlueSquaresWhenNoneInOrder() {
         addBlocksToOrder();
         Report report = reportGenerator.createInvoiceReport(order);
 
@@ -54,7 +66,7 @@ class ReportGeneratorTests {
     }
 
     @Test
-    void reportDisplayShowsRedCircleWhenOneIsOrdered() {
+    void reportHasOneRedCircleWhenInOrder() {
         addBlocksToOrder();
         Report report = reportGenerator.createInvoiceReport(order);
 
@@ -83,18 +95,6 @@ class ReportGeneratorTests {
 
         Report report = reportGenerator.createInvoiceReport(order);
         Assertions.assertEquals(2, report.getReportData().getTotalSquareCount());
-    }
-
-    private void addBlocksToOrder() {
-        order.add(new Block(PaintColour.RED, Shape.SQUARE));
-        order.add(new Block(PaintColour.YELLOW, Shape.SQUARE));
-        order.add(new Block(PaintColour.RED, Shape.TRIANGLE));
-        order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
-        order.add(new Block(PaintColour.BLUE, Shape.TRIANGLE));
-        order.add(new Block(PaintColour.RED, Shape.CIRCLE));
-        order.add(new Block(PaintColour.BLUE, Shape.CIRCLE));
-        order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
-        order.add(new Block(PaintColour.YELLOW, Shape.CIRCLE));
     }
 
 }

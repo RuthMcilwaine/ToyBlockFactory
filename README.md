@@ -113,7 +113,9 @@ Select Project Settings, then Libraries and click on the plus + symbol to inc
 
 In the dialog that opens, specify the necessary library artifact, for example: org.junit.jupiter:junit-jupiter:5.4.2.
 Apply the changes and close the dialog.
+
 <img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-4.png" width="800" />
+
 
 
 ## Swimlanes Sequence Diagram
@@ -128,7 +130,7 @@ Once the project is open in the IDE, the file structure can be viewed from the l
 
 
 
-## Break down into end to end tests
+## Break down of tests
 
 E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity.
 

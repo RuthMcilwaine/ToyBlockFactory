@@ -4,19 +4,19 @@ import org.junit.jupiter.api.Test;
 public class ValidateInputTest {
 
     @Test
-    void customerNameInputIsValidWithDiacritic() {
+    void customerNameInputUsingDiacriticIsValid() {
         boolean expected = ValidateInput.validateName("Mark Müller");
         Assertions.assertTrue(expected);
     }
 
     @Test
-    void customerNameInputIsInvalid() {
+    void customerNameInputUsingSymbolsIsInvalid() {
         boolean expected = ValidateInput.validateName("Mark P*^arl");
         Assertions.assertFalse(expected);
     }
 
     @Test
-    void customerNameInputIsNullReturnsFalse() {
+    void customerNameInputWhenNullIsInvalid() {
         boolean expected = ValidateInput.validateName(null);
         Assertions.assertFalse(expected);
     }
@@ -40,13 +40,19 @@ public class ValidateInputTest {
     }
 
     @Test
-    void customerAddressInputIsInvalid() {
+    void customerAddressInputUsingSymbolsIsInvalid() {
         boolean expected = ValidateInput.validateAddress("1 Bob Av&*nue, Auckland");
         Assertions.assertFalse(expected);
     }
 
     @Test
-    void dueDateInputIsInvalid() {
+    void dueDateInputNotUsingDayMonthYearIsValid() {
+        boolean expected = ValidateInput.validateDueDate("19/12/2019");
+        Assertions.assertTrue(expected);
+    }
+
+    @Test
+    void dueDateInputNotUsingDayMonthYearIsInvalid() {
         boolean expected = ValidateInput.validateDueDate("19/14/2019");
         Assertions.assertFalse(expected);
     }

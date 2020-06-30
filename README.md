@@ -1,6 +1,36 @@
 ## ToyBlockFactory
-The toy block factory takes an order from a customer and generates an invoice detailing the amount of blocks (square, triangle, circle) and colours (red, blue, yellow) ordered and the cost of each.  A cutting report is generated for the cutting department and a painting report is generated for the paint department. Below shows an example of expected output after an order has been created:
+The toy block factory takes an order from a customer and generates an invoice detailing the amount of blocks (square, triangle, circle) and colours (red, blue, yellow) ordered and the cost of each.  A cutting report is generated for the cutting department and a painting report is generated for the paint department.
+### Example input:
+```
+Welcome to the Toy Block Factory! 
 
+Please input your Name: 
+Ruth Lee
+Please input your Address: 
+1 Bob Ave
+Please input your Due Date (eg.19/01/2019): 
+20/02/2020
+Please input the number of Red Squares: 
+1
+Please input the number of Blue Squares: 
+1
+Please input the number of Yellow Squares: 
+1
+Please input the number of Red Triangle: 
+1
+Please input the number of Blue Triangle: 
+1
+Please input the number of Yellow Triangle: 
+1
+Please input the number of Red Circle: 
+1
+Please input the number of Blue Circle: 
+1
+Please input the number of Yellow Circle: 
+1
+```
+
+### Expected output after an order has been created:
 
 ```Your invoice report has been generated: 
 
@@ -72,7 +102,7 @@ Install the latest version of IntelliJ.  Follow instructions at the link: https:
 Once the program has downloaded, transfer to Applications directory. When this is finished, open the Applications directory and double click on IntelliJ to open it.
 
 Choose import project from the menu selection and choose the ToyBlockFactory from the file directory. Continue with the prompts.
-![install-1](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png)
+![install-1](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png =24x48)
 
 Make sure to select jdk-11 (or the most up to date) when choosing the project SDK.
 

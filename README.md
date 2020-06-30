@@ -84,7 +84,6 @@ Open the terminal and cd into the directory where you want to save the project.
  $ javac -d ../classes *.java
  $ cd ../classes 
  $ jar cvf ToyBlockFactory.jar *
- $ jar tf ToyBlockFactory.jar
  $ java Main (to start to program)
  ```
 
@@ -130,7 +129,7 @@ Once the project is open in the IDE, the file structure can be viewed from the l
 
 
 
-## Break down of tests
+## Test pyramid
 
 E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity.
 

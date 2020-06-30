@@ -30,7 +30,7 @@ Please input the number of Yellow Circle:
 1
 ```
 
-### Expected output after an order has been created:
+### Expected output:
 
 ```Your invoice report has been generated: 
 
@@ -102,7 +102,7 @@ Install the latest version of IntelliJ.  Follow instructions at the link: https:
 Once the program has downloaded, transfer to Applications directory. When this is finished, open the Applications directory and double click on IntelliJ to open it.
 
 Choose import project from the menu selection and choose the ToyBlockFactory from the file directory. Continue with the prompts.
-![install-1](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png =24x48)
+![install-1](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png | width=48)
 
 Make sure to select jdk-11 (or the most up to date) when choosing the project SDK.
 

@@ -46,7 +46,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    void dueDateInputNotUsingDayMonthYearIsValid() {
+    void dueDateInputUsingDayMonthYearIsValid() {
         boolean expected = ValidateInput.validateDueDate("19/12/2019");
         Assertions.assertTrue(expected);
     }

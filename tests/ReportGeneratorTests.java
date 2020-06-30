@@ -21,8 +21,9 @@ class ReportGeneratorTests {
     void reportHasNoBlueSquaresWhenNoneInOrder() {
         addBlocksToOrder();
         Report report = reportGenerator.createInvoiceReport(order);
-
+        System.out.println(report.printReport());
         Assertions.assertEquals(0, report.getReportData().getBlueSquare());
+
     }
 
     @Test

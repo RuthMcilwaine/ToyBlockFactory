@@ -102,20 +102,18 @@ Install the latest version of IntelliJ.  Follow instructions at the link: https:
 Once the program has downloaded, transfer to Applications directory. When this is finished, open the Applications directory and double click on IntelliJ to open it.
 
 Choose import project from the menu selection and choose the ToyBlockFactory from the file directory. Continue with the prompts.
-![install-1](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png | width=48)
+<img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-1.png" width="800" />
 
 Make sure to select jdk-11 (or the most up to date) when choosing the project SDK.
-
-![install-2](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-2.png)
+<img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-2.png" width="800" />
 
 To manually add the tests library from the main menu, select File and Project Structure.
 Select Project Settings, then Libraries and click on the plus + symbol to include from Maven.
-![install-3](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-3.png)
+<img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-3.png" width="800" />
 
 In the dialog that opens, specify the necessary library artifact, for example: org.junit.jupiter:junit-jupiter:5.4.2.
 Apply the changes and close the dialog.
-![install-4](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-4.png)
-
+<img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-4.png" width="800" />
 
 
 ## Swimlanes Sequence Diagram
@@ -125,7 +123,10 @@ Apply the changes and close the dialog.
 ## Running the tests
 
 Once the project is open in the IDE, the file structure can be viewed from the left. Double click on the tests directory and from the dropdown, click on the option to run ‘All Tests’.
-![running-all-tests](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/running-all-tests.png)
+
+<img src="https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/running-all-tests.png" width="500" />
+
+
 
 ## Break down into end to end tests
 

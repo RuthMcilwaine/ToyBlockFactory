@@ -10,6 +10,12 @@ class OrderTests {
     Order order = new Order();
 
     @Test
+    void canGenerateNewOrderIdForNewOrder() {
+        order.setOrderId(0001);
+        Assertions.assertEquals(0001, order.getOrderId());
+    }
+
+    @Test
     void generateOrderWithNoBlocks() {
         int actual = order.getBlocks().size();
         Assertions.assertEquals(0, actual);

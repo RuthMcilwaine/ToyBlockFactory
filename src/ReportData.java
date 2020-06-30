@@ -2,6 +2,7 @@
 
 public class ReportData {
     private Customer customerDetails;
+    private int orderId;
     private int sumOfCosts;
     private int redSquare;
     private int blueSquare;
@@ -17,9 +18,13 @@ public class ReportData {
         return customerDetails;
     }
 
-    void setCustomerDetails(Customer customerDetails) {
+    public void setCustomerDetails(Customer customerDetails) {
         this.customerDetails = customerDetails;
     }
+
+    public String getOrderId() { return "000" + orderId; }
+
+    public void setOrderId(int orderId) { this.orderId = orderId; }
 
     public int getSumOfCosts() {
         return sumOfCosts;
@@ -30,10 +35,12 @@ public class ReportData {
     }
 
     public int getTotalSquareCount() {
-        return redSquare + blueSquare + yellowSquare; }
+        return redSquare + blueSquare + yellowSquare;
+    }
 
     public int getTotalTriangleCount() {
-        return redTriangle + blueTriangle + yellowTriangle; }
+        return redTriangle + blueTriangle + yellowTriangle;
+    }
 
     public int getTotalCircleCount() {
         return redCircle + blueCircle + yellowCircle;
@@ -79,19 +86,19 @@ public class ReportData {
         return yellowCircle;
     }
 
-    void setSquarePaintColours(int redSquare, int blueSquare, int yellowSquare) {
+    public void setSquarePaintColours(int redSquare, int blueSquare, int yellowSquare) {
         this.redSquare = redSquare;
         this.blueSquare = blueSquare;
         this.yellowSquare = yellowSquare;
     }
 
-    void setCirclePaintColours(int redCircle, int blueCircle, int yellowCircle) {
+    public void setCirclePaintColours(int redCircle, int blueCircle, int yellowCircle) {
         this.redCircle = redCircle;
         this.blueCircle = blueCircle;
         this.yellowCircle = yellowCircle;
     }
 
-    void setTrianglePaintColours(int redTriangle, int blueTriangle, int yellowTriangle) {
+    public void setTrianglePaintColours(int redTriangle, int blueTriangle, int yellowTriangle) {
         this.redTriangle = redTriangle;
         this.blueTriangle = blueTriangle;
         this.yellowTriangle = yellowTriangle;

@@ -16,7 +16,7 @@ public class CuttingReport implements Report {
     public String printReport() {
         return "\n\nYour cutting report has been generated: \n\n" +
 
-                getReportData().getCustomerDetails() + "\n\n" +
+                getReportData().getCustomerDetails() + ", Order #: " + getReportData().getOrderId() + "\n\n" +
                 "|          | Qty |\n" +
                 "|  square  |  " + getReportData().getTotalSquareCount() + "  |\n"
                 + "| triangle |  " + getReportData().getTotalTriangleCount() + "  |\n"

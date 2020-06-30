@@ -15,7 +15,7 @@ public class InvoiceReport implements Report {
     public String printReport() {
         return  "\n\nYour invoice report has been generated: \n\n" +
 
-                getReportData().getCustomerDetails() + "\n\n" +
+                getReportData().getCustomerDetails() + ", Order #: " + getReportData().getOrderId() + "\n\n" +
 
                 "|          | red | blue | yellow | \n" +
                 "|  square  |  " + getReportData().getRedSquare() + "  |  " + getReportData().getBlueSquare() + "   |   " + getReportData().getYellowSquare() + "    | \n"

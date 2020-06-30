@@ -3,11 +3,11 @@ public class Block {
     private PaintColour paintcolour;
     private Shape shape;
 
-    PaintColour getPaintColour() {
+    public PaintColour getPaintColour() {
         return paintcolour;
     }
 
-    Shape getShape() {
+    public Shape getShape() {
         return shape;
     }
 

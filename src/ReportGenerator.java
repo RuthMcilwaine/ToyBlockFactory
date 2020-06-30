@@ -49,6 +49,7 @@ class ReportGenerator {
 
         ReportData reportData = new ReportData();
         reportData.setCustomerDetails(customerDetails);
+        reportData.setOrderId(order.getOrderId());
         reportData.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
         reportData.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
         reportData.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);

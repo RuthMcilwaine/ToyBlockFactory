@@ -7,7 +7,7 @@ class Order {
     private int orderId;
     private List<Block> blocks = new ArrayList<>();
 
-    Customer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 

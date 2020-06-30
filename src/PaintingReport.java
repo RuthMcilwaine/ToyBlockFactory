@@ -16,7 +16,7 @@ public class PaintingReport implements Report {
     public String printReport() {
         return "\n\nYour painting report has been generated: \n\n" +
 
-                getReportData().getCustomerDetails() + "\n\n" +
+                getReportData().getCustomerDetails() + ", Order #: " + getReportData().getOrderId() + "\n\n" +
 
                 "|          | red | blue | yellow | \n" +
                 "|  square  |  " + getReportData().getRedSquare() + "  |  " + getReportData().getBlueSquare() + "   |   " + getReportData().getYellowSquare() + "    | \n"

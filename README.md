@@ -1,9 +1,46 @@
 ## ToyBlockFactory
-The toy block factory takes an order from a customer and generates an invoice detailing the amount of blocks (square, triangle, circle) and colours (red, blue, yellow) ordered and the cost of each.  A cutting report is generated for the cutting department and a painting report is generated for the paint department.
+The toy block factory takes an order from a customer and generates an invoice detailing the amount of blocks (square, triangle, circle) and colours (red, blue, yellow) ordered and the cost of each.  A cutting report is generated for the cutting department and a painting report is generated for the paint department. Below shows an example of expected output after an order has been created:
 
-## Swimlanes Sequence Diagram
-![Swimlanes Sequence Diagram](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/toyblockfactory-sequence-diagram.png)
 
+```Your invoice report has been generated: 
+
+Name: Ruth Lee, Address: 1 Bob Ave, Due Date: 20/02/2020
+
+|          | red | blue | yellow | 
+|  square  |  1  |  1   |   1    | 
+| triangle |  1  |  1   |   1    | 
+|  circle  |  1  |  1   |   1    | 
+Squares 3 @ $1 ppi =  $3
+Triangles 3 @ $2 ppi =  $6
+Circles 3 @ $3 ppi =  $9
+Red colour surcharge 3 @ $1 ppi =  $3
+
+Total:  $21
+
+
+
+
+Your cutting report has been generated: 
+
+Name: Ruth Lee, Address: 1 Bob Ave, Due Date: 20/02/2020
+
+|          | Qty |
+|  square  |  6  |
+| triangle |  6  |
+|  circle  |  6  |
+
+
+
+
+Your painting report has been generated: 
+
+Name: Ruth Lee, Address: 1 Bob Ave, Due Date: 20/02/2020
+
+|          | red | blue | yellow | 
+|  square  |  3  |  3   |   3    | 
+| triangle |  3  |  3   |   3    | 
+|  circle  |  3  |  3   |   3    | 
+```
 
 ## Getting Started
 
@@ -50,6 +87,11 @@ Apply the changes and close the dialog.
 ![install-4](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/install-4.png)
 
 
+
+## Swimlanes Sequence Diagram
+![Swimlanes Sequence Diagram](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/toyblockfactory-sequence-diagram.png)
+
+
 ## Running the tests
 
 Once the project is open in the IDE, the file structure can be viewed from the left. Double click on the tests directory and from the dropdown, click on the option to run ‘All Tests’.
@@ -57,12 +99,16 @@ Once the project is open in the IDE, the file structure can be viewed from the l
 
 ## Break down into end to end tests
 
-E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity and to ensure that it behaves as expected.
+E2E is testing the application's workflow from beginning to end. It aims to replicate user scenarios so that the system can be validated for integration and data integrity.
+
+Integration testing combines individual units and tests the interaction between them, to expose any faults that might exist.
+
+Unit tests are the smallest testable part of the application, and are used to ensure that the individual units are behaving as expected.
 
 ![test-pyramid](https://github.com/RuthMcilwaine/ToyBlockFactory/blob/master/docs/test-pyramid.png)
 
 
-### Example:
+### Example of Integration:
 ```
  @Test
     void orderIsSetAndInvoiceIsDisplayed() {

@@ -13,6 +13,21 @@ public class ReportData {
     private int redCircle;
     private int blueCircle;
     private int yellowCircle;
+    private int redHexagon;
+    private int blueHexagon;
+    private int yellowHexagon;
+
+    public int getRedHexagon() {
+        return redHexagon;
+    }
+
+    public int getBlueHexagon() {
+        return blueHexagon;
+    }
+
+    public int getYellowHexagon() {
+        return yellowHexagon;
+    }
 
     public Customer getCustomerDetails() {
         return customerDetails;
@@ -46,12 +61,16 @@ public class ReportData {
         return redCircle + blueCircle + yellowCircle;
     }
 
+    public int getTotalHexagonCount() {
+        return redHexagon + blueHexagon + yellowHexagon;
+    }
+
     public int getRedSquare() {
         return redSquare;
     }
 
     public int getTotalRedCount() {
-        return redTriangle + redSquare + redCircle;
+        return redTriangle + redSquare + redCircle + redHexagon;
     }
 
     public int getBlueSquare() {
@@ -102,6 +121,11 @@ public class ReportData {
         this.redTriangle = redTriangle;
         this.blueTriangle = blueTriangle;
         this.yellowTriangle = yellowTriangle;
+    }
+    public void setHexagonPaintColours(int redHexagon, int blueHexagon, int yellowHexagon) {
+        this.redHexagon = redHexagon;
+        this.blueHexagon = blueHexagon;
+        this.yellowHexagon = yellowHexagon;
     }
 
 }

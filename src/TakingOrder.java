@@ -56,6 +56,9 @@ class TakingOrder {
         createBlocks(questionAnswer(input, "Red Circle"), PaintColour.RED, Shape.CIRCLE);
         createBlocks(questionAnswer(input, "Blue Circle"), PaintColour.BLUE, Shape.CIRCLE);
         createBlocks(questionAnswer(input, "Yellow Circle"), PaintColour.YELLOW, Shape.CIRCLE);
+        createBlocks(questionAnswer(input, "Red Hexagon"), PaintColour.RED, Shape.HEXAGON);
+        createBlocks(questionAnswer(input, "Blue Hexagon"), PaintColour.BLUE, Shape.HEXAGON);
+        createBlocks(questionAnswer(input, "Yellow Hexagon"), PaintColour.YELLOW, Shape.HEXAGON);
     }
 
     private void createBlocks(int numOfBlocks, PaintColour paintColour, Shape shape) {

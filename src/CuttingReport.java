@@ -20,7 +20,8 @@ public class CuttingReport implements Report {
                 "|          | Qty |\n" +
                 "|  square  |  " + getReportData().getTotalSquareCount() + "  |\n"
                 + "| triangle |  " + getReportData().getTotalTriangleCount() + "  |\n"
-                + "|  circle  |  " + getReportData().getTotalCircleCount() + "  |\n\n";
+                + "|  circle  |  " + getReportData().getTotalCircleCount() + "  |\n"
+                + "| hexagon |  " + getReportData().getTotalHexagonCount() + "  |\n\n";
 
     }
 }

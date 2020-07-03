@@ -21,10 +21,13 @@ public class InvoiceReport implements Report {
                 "|  square  |  " + getReportData().getRedSquare() + "  |  " + getReportData().getBlueSquare() + "   |   " + getReportData().getYellowSquare() + "    | \n"
                 + "| triangle |  "  + getReportData().getRedTriangle() + "  |  "  + getReportData().getBlueTriangle() +  "   |   "  + getReportData().getYellowTriangle() +  "    | \n"
                 + "|  circle  |  " + getReportData().getRedCircle()+ "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n" +
+                 "|  hexagon  |  " + getReportData().getRedHexagon()+ "  |  " + getReportData().getBlueHexagon() + "   |   " + getReportData().getYellowHexagon() + "    | \n" +
 
                 "Squares " + getReportData().getTotalSquareCount() + " @ $1 ppi =  $" + getReportData().getTotalSquareCount() + "\n" +
                 "Triangles " + getReportData().getTotalTriangleCount() + " @ $2 ppi =  $" + getReportData().getTotalTriangleCount() * 2 + "\n" +
                 "Circles " + getReportData().getTotalCircleCount() + " @ $3 ppi =  $" + getReportData().getTotalCircleCount() * 3 + "\n" +
+
+                "Hexagon " + getReportData().getTotalHexagonCount() + " @ $4 ppi =  $" + getReportData().getTotalHexagonCount() * 4 + "\n" +
                 "Red colour surcharge " + getReportData().getTotalRedCount() + " @ $1 ppi =  $" + getReportData().getTotalRedCount() + "\n\n" +
                 "Total:  $" + getReportData().getSumOfCosts() + "\n\n";
     }

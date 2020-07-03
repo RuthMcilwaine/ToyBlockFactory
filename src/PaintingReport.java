@@ -21,6 +21,8 @@ public class PaintingReport implements Report {
                 "|          | red | blue | yellow | \n" +
                 "|  square  |  " + getReportData().getRedSquare() + "  |  " + getReportData().getBlueSquare() + "   |   " + getReportData().getYellowSquare() + "    | \n"
                 + "| triangle |  " + getReportData().getRedTriangle() + "  |  " + getReportData().getBlueTriangle() + "   |   " + getReportData().getYellowTriangle() + "    | \n"
-                + "|  circle  |  " + getReportData().getRedCircle() + "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n\n";
+                + "|  circle  |  " + getReportData().getRedCircle() + "  |  " + getReportData().getBlueCircle() + "   |   " + getReportData().getYellowCircle() + "    | \n" +
+                "| hexagon |  " + getReportData().getRedHexagon() + "  |  " + getReportData().getBlueHexagon() + "   |   " + getReportData().getYellowHexagon() + "    | \n\n";
+
     }
 }

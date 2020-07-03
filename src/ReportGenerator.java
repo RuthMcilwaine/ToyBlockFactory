@@ -11,6 +11,9 @@ class ReportGenerator {
     private int redCircle;
     private int blueCircle;
     private int yellowCircle;
+    private int redHexagon;
+    private int blueHexagon;
+    private int yellowHexagon;
 
     private Map<Shape, Integer> pricePerShape = new HashMap<>();
 
@@ -18,6 +21,8 @@ class ReportGenerator {
         pricePerShape.put(Shape.SQUARE, 1);
         pricePerShape.put(Shape.TRIANGLE, 2);
         pricePerShape.put(Shape.CIRCLE, 3);
+        pricePerShape.put(Shape.HEXAGON, 4);
+
     }
 
     public Report createInvoiceReport(Order order) {
@@ -48,6 +53,9 @@ class ReportGenerator {
         redCircle = 0;
         blueCircle = 0;
         yellowCircle = 0;
+        redHexagon = 0;
+        blueHexagon = 0;
+        yellowHexagon = 0;
     }
 
     private ReportData getReportData(Order order) {
@@ -60,6 +68,8 @@ class ReportGenerator {
             countSquaresPaintColoursFromOrder(block);
             countTrianglesPaintColoursFromOrder(block);
             countCirclesPaintColoursFromOrder(block);
+            countHexagonPaintColoursFromOrder(block);
+
         }
 
         ReportData reportData = new ReportData();
@@ -68,8 +78,18 @@ class ReportGenerator {
         reportData.setSquarePaintColours(redSquare, blueSquare, yellowSquare);
         reportData.setCirclePaintColours(redCircle, blueCircle, yellowCircle);
         reportData.setTrianglePaintColours(redTriangle, blueTriangle, yellowTriangle);
+        reportData.setHexagonPaintColours(redHexagon, blueHexagon, yellowHexagon);
         reportData.setSumOfCosts(sumOfCosts);
         return reportData;
+    }
+
+    private void countHexagonPaintColoursFromOrder(Block block) {
+        if (block.getShape().equals(Shape.HEXAGON)) {
+
+            redHexagon = incrementingRedValue(block.getPaintColour(), redHexagon);
+            blueHexagon = incrementingBlueValue(block.getPaintColour(), blueHexagon);
+            yellowHexagon = incrementingYellowValue(block.getPaintColour(), yellowHexagon);
+        }
     }
 
     private Integer getPrice(Block block) {

@@ -16,9 +16,11 @@ class Order {
     }
 
     public int getOrderId() {
-        AtomicInteger seq = new AtomicInteger(orderId);
-        orderId = seq.incrementAndGet();
         return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public List<Block> getBlocks() {
@@ -31,5 +33,6 @@ class Order {
             blocks.add(block);
         }
     }
+
 }
 

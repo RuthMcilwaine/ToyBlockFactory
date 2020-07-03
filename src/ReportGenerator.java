@@ -22,17 +22,32 @@ class ReportGenerator {
 
     public Report createInvoiceReport(Order order) {
         ReportData reportData = getReportData(order);
+        resetValues();
         return new InvoiceReport(reportData);
     }
 
     public Report createCuttingReport(Order order) {
         ReportData reportData = getReportData(order);
+        resetValues();
         return new CuttingReport(reportData);
     }
 
     public Report createPaintingReport(Order order) {
         ReportData reportData = getReportData(order);
+        resetValues();
         return new PaintingReport(reportData);
+    }
+
+    private void resetValues() {
+        redSquare = 0;
+        blueSquare = 0;
+        yellowSquare = 0;
+        redTriangle = 0;
+        blueTriangle = 0;
+        yellowTriangle = 0;
+        redCircle = 0;
+        blueCircle = 0;
+        yellowCircle = 0;
     }
 
     private ReportData getReportData(Order order) {

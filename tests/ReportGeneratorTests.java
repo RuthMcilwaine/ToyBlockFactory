@@ -21,9 +21,7 @@ class ReportGeneratorTests {
     void reportHasNoBlueSquaresWhenNoneInOrder() {
         addBlocksToOrder();
         Report report = reportGenerator.createInvoiceReport(order);
-        System.out.println(report.printReport());
         Assertions.assertEquals(0, report.getReportData().getBlueSquare());
-
     }
 
     @Test
@@ -97,5 +95,21 @@ class ReportGeneratorTests {
         Report report = reportGenerator.createInvoiceReport(order);
         Assertions.assertEquals(2, report.getReportData().getTotalSquareCount());
     }
+
+
+    @Test
+    void canGetSameTotalSquaresCountWhenCallingThreeTimes() {
+        addBlocksToOrder();
+
+        Report report = reportGenerator.createInvoiceReport(order);
+        Assertions.assertEquals(2, report.getReportData().getTotalSquareCount());
+
+        Report report2 = reportGenerator.createCuttingReport(order);
+        Assertions.assertEquals(2, report2.getReportData().getTotalSquareCount());
+
+        Report report3 = reportGenerator.createPaintingReport(order);
+        Assertions.assertEquals(2, report3.getReportData().getTotalSquareCount());
+    }
+
 
 }

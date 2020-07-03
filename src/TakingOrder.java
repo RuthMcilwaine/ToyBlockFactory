@@ -10,7 +10,12 @@ class TakingOrder {
 
     public void setOrder(Scanner input) {
         setCustomerDetails(input);
+        createAndSetOrderId(1);
         setOrderDetails(input);
+    }
+
+    private void createAndSetOrderId(int orderId) {
+        order.setOrderId(orderId);
     }
 
     public void setCustomerDetails(Scanner input) {
